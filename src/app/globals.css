@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold-deep: #73591f;
+  --gold-mid:  #b8902b;
+  --gold-soft: #ecd498;
+  --maroon:    #811f1f;
+  --cream:     #fdf9ef;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: #2a2118;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.5px;
+}
+
+/* gold-foil shimmer used on big headings */
+.gold-text {
+  background: linear-gradient(135deg,#d4a73a 0%,#b8902b 35%,#fbf6ea 50%,#b8902b 65%,#73591f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: shine 6s linear infinite;
+}
+@keyframes shine {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.maroon-text {
+  color: var(--maroon);
+}
+
+/* Devanagari script gets the serif Devanagari font automatically */
+.hindi {
+  font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
+}
+
+/* Decorative divider */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--gold-mid);
+}
+.divider-ornament::before,
+.divider-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-mid), transparent);
+  max-width: 200px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: linear-gradient(135deg,#b8902b,#73591f);
+  color: #fff;
+  padding: .75rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  box-shadow: 0 6px 18px -8px rgba(115,89,31,.6);
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px rgba(115,89,31,.7);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border: 1.5px solid var(--gold-mid);
+  color: var(--gold-deep);
+  padding: .65rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  background: rgba(255,255,255,.6);
+  transition: background .2s;
+}
+.btn-outline:hover {
+  background: var(--gold-soft);
+}
+
+/* Card base */
+.product-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #ecd498;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -10px rgba(184,144,43,.45);
+}
+
+/* Filigree border for headings */
+.fancy-heading {
+  position: relative;
+  display: inline-block;
+  padding: 0 2.5rem;
+}
+.fancy-heading::before,
+.fancy-heading::after {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-mid);
+  font-size: 1.2rem;
+}
+.fancy-heading::before { left: 0; }
+.fancy-heading::after  { right: 0; }
