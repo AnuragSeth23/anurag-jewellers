@@ -5,8 +5,8 @@ const nav = [
   { href: '/',                 hi: 'मुख्य पृष्ठ',  en: 'Home' },
   { href: '/gallery',          hi: 'पूरी गैलरी',  en: 'Gallery' },
   { href: '/collections',      hi: 'सभी ज्वैलरी', en: 'Collections' },
-  { href: '/collections/necklace', hi: 'हार-सेट',  en: 'Necklaces' },
-  { href: '/collections/ring',     hi: 'अंगूठी',  en: 'Rings' },
+  { href: '/collections/pendant',  hi: 'लॉकेट / पेंडेंट', en: 'Lockets' },
+  { href: '/collections/payal',    hi: 'पायल',    en: 'Payals' },
   { href: '/about',            hi: 'हमारे बारे में', en: 'About' },
   { href: '/contact',          hi: 'संपर्क',      en: 'Contact' },
 ];

@@ -13,365 +13,447 @@ export interface Product {
   slug: string;
   nameHi: string;
   nameEn: string;
-  category: string;       // matches category slug
+  category: string;
   material: Material;
   audience: Audience;
   occasions: Occasion[];
   weightGrams?: number;
   description: string;
-  /** SVG icon key — see ProductCard for rendering */
   icon: 'ring' | 'necklace' | 'tikka' | 'jhumka' | 'bangle' | 'payal' | 'nath' | 'pendant' | 'chain' | 'kada' | 'set';
-  /** color preset for placeholder gradient */
   tone: 'gold' | 'rose' | 'white' | 'antique';
-  /** Optional: real image URL (Cloudinary / public/images/...) — replaces placeholder */
   image?: string;
   featured?: boolean;
 }
 
+/** Categories — only ones we actually stock with real photos */
 export const categories = [
-  { slug: 'necklace', nameHi: 'गले के हार',     nameEn: 'Necklaces & Sets', icon: 'necklace' },
-  { slug: 'ring',     nameHi: 'अंगूठियाँ',      nameEn: 'Rings',            icon: 'ring' },
-  { slug: 'tikka',    nameHi: 'मांग टीका',      nameEn: 'Maang Tikka',      icon: 'tikka' },
-  { slug: 'jhumka',   nameHi: 'झुमके',          nameEn: 'Earrings',         icon: 'jhumka' },
-  { slug: 'bangle',   nameHi: 'चूड़ी / कंगन',   nameEn: 'Bangles & Bracelets', icon: 'bangle' },
-  { slug: 'payal',    nameHi: 'पायल',           nameEn: 'Anklets (Payal)',  icon: 'payal' },
-  { slug: 'nath',     nameHi: 'नथ',             nameEn: 'Nose Pins',        icon: 'nath' },
-  { slug: 'pendant',  nameHi: 'पेंडेंट',        nameEn: 'Pendants',         icon: 'pendant' },
-  { slug: 'chain',    nameHi: 'चेन',            nameEn: 'Chains',           icon: 'chain' },
-  { slug: 'kada',     nameHi: 'कड़ा (Gents)',   nameEn: 'Kada (Gents)',     icon: 'kada' },
+  { slug: 'necklace', nameHi: 'हार',          nameEn: 'Necklaces',          icon: 'necklace' },
+  { slug: 'pendant',  nameHi: 'पेंडेंट / लॉकेट', nameEn: 'Pendants & Lockets', icon: 'pendant' },
+  { slug: 'ring',     nameHi: 'अंगूठियाँ',      nameEn: 'Rings',              icon: 'ring' },
+  { slug: 'jhumka',   nameHi: 'झुमके / चांद बाली', nameEn: 'Earrings & Chand Bali', icon: 'jhumka' },
+  { slug: 'bangle',   nameHi: 'चूड़ी / कंगन',    nameEn: 'Bangles & Bracelets', icon: 'bangle' },
+  { slug: 'payal',    nameHi: 'पायल',           nameEn: 'Anklets (Payal)',    icon: 'payal' },
+  { slug: 'utensil',  nameHi: 'चाँदी के बर्तन',  nameEn: 'Silver Utensils',    icon: 'set' },
 ] as const;
 
 export type CategorySlug = typeof categories[number]['slug'];
 
-/** Local photo from /public/products/ — owner's actual jewelry items. */
 const local = (n: number) => `/products/p${String(n).padStart(3, '0')}.jpg`;
 
-/** Owner's real photos (139 total) live in /public/products/.
- *  First 36 mapped to the existing categorised products below; the rest
- *  appear on the /gallery page. */
+/** slug → photo file. Each entry is an actual photographed item from our shop. */
 const productImages: Record<string, string> = {
-  // necklaces / sets — gold pendants & necklaces
-  'rajwadi-bridal-haar':       local(1),
-  'temple-laxmi-haar':         local(2),
-  'diamond-choker-set':        local(120),
-  'silver-oxidised-haar':      local(121),
-  'rani-haar-long':            local(3),
-  // rings — single gold/diamond rings
-  'solitaire-engagement-ring': local(10),
-  'gold-band-couple':          local(11),
-  'navratan-ring':             local(12),
-  'silver-toe-ring':           local(100),
-  'kids-gold-ring':            local(13),
-  // maang tikka
-  'kundan-maang-tikka':        local(4),
-  'pearl-tikka':               local(5),
-  'silver-tikka':              local(6),
-  // jhumka / earrings
-  'gold-jhumka-bridal':        local(20),
-  'diamond-stud-earrings':     local(21),
-  'meenakari-jhumka':          local(22),
-  'silver-chand-bali':         local(23),
+  // pendants / mangalsutra lockets — collages and singles
+  'gold-locket-collection-1':   local(1),
+  'gold-locket-collection-2':   local(2),
+  'gold-locket-collection-3':   local(3),
+  'gold-locket-collection-4':   local(4),
+  'gold-pendant-4-53g':         local(60),
+  'gold-pendant-5-12g':         local(61),
+  'gold-pendant-5-04g':         local(62),
+
+  // necklaces (full)
+  'gold-necklace-13-700g':      local(5),
+  'gold-necklace-meenakari':    local(6),
+  'bridal-gold-haar-set':       local(122),
+
+  // diamond / gold rings
+  'diamond-ring-design-1':      local(10),
+  'diamond-ring-2-312g':        local(11),
+  'diamond-ring-2-912g':        local(12),
+  'diamond-ring-1-480g':        local(13),
+  'gold-rings-display':         local(55),
+
+  // silver kids/fashion rings (in lots)
+  'silver-stone-rings-mix-1':   local(90),
+  'silver-stone-rings-mix-2':   local(91),
+  'silver-stone-rings-mix-3':   local(100),
+
+  // chand bali / large gold jhumkas
+  'gold-chand-bali-1':          local(20),
+  'gold-chand-bali-2':          local(21),
+  'gold-chand-bali-3':          local(22),
+  'gold-chand-bali-4':          local(23),
+  'gold-jhumka-boxed':          local(54),
+
   // bangles
-  'bridal-gold-kangan':        local(50),
-  'diamond-bracelet':          local(51),
-  'silver-paayal-bangle':      local(52),
-  'kids-gold-kara':            local(53),
-  // payal
-  'silver-payal-traditional':  local(60),
-  'kids-silver-payal':         local(61),
-  'gold-payal-anklet':         local(62),
-  // nath
-  'bridal-nath':               local(70),
-  'small-nose-pin':            local(71),
-  'diamond-nose-pin':          local(72),
-  // pendants
-  'om-gold-pendant':           local(80),
-  'heart-diamond-pendant':     local(81),
-  'ganesh-pendant':            local(82),
-  // chains
-  'gents-gold-chain-thick':    local(90),
-  'ladies-thin-chain':         local(91),
-  'silver-chain-gents':        local(122),
-  // kada
-  'gents-gold-kada':           local(54),
-  'silver-kada':               local(55),
-  'diamond-kada-gents':        local(56),
+  'gold-bangles-3-700g':        local(50),
+  'gold-bangles-4g':            local(52),
+  'gold-bangles-8g':            local(53),
+  'rudraksha-gold-bracelet':    local(56),
+
+  // silver fancy payals (different supplier-grade designs we stock)
+  'silver-payal-102-6g':        local(70),
+  'silver-payal-98-3g-stones':  local(71),
+  'silver-payal-118-83g-pswt':  local(72),
+  'silver-payal-90-5g':         local(80),
+  'silver-payal-140-2g':        local(81),
+  'silver-payal-87-7g':         local(82),
+
+  // silver utensils — chandi ke bartan (puja & gift items)
+  'silver-glass-pair':          local(51),
+  'silver-thali':               local(121),
+
+  // silver pendant chain
+  'silver-heart-arrow-chain':   local(120),
 };
 
-// galleryPhotos is computed at build time inside src/app/gallery/page.tsx
-// (it reads /public/products directly so newly uploaded photos auto-appear).
-
 const _rawProducts: Product[] = [
-  // ---------- BRIDAL NECKLACE SETS ----------
+  // ---------- GOLD LOCKET / PENDANT COLLECTIONS ----------
   {
-    id: 'n1', slug: 'rajwadi-bridal-haar', nameHi: 'राजवाड़ी ब्राइडल हार',
-    nameEn: 'Rajwadi Bridal Haar (Gold)', category: 'necklace', material: 'gold',
-    audience: 'ladies', occasions: ['wedding', 'lagan'], weightGrams: 42,
-    description: 'भारी राजवाड़ी डिज़ाइन का ब्राइडल हार — मीनाकारी और कुंदन वर्क के साथ। शादी और लगन के लिए परफेक्ट।',
-    icon: 'set', tone: 'gold', featured: true,
+    id: 'pd-c1', slug: 'gold-locket-collection-1',
+    nameHi: 'सोने के लॉकेट कलेक्शन — 6 डिज़ाइन्स (दिल आकार)',
+    nameEn: 'Gold Locket Collection — 6 Designs (Heart-shape)',
+    category: 'pendant', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'daily'],
+    description: 'सोने के लॉकेट / मंगलसूत्र पेंडेंट के 6 अलग-अलग दिल-आकार डिज़ाइन्स — झालर और बारीक नक्काशी। मनपसंद डिज़ाइन फोन पर बताएं।',
+    icon: 'pendant', tone: 'gold', featured: true,
   },
   {
-    id: 'n2', slug: 'temple-laxmi-haar', nameHi: 'टेंपल लक्ष्मी हार',
-    nameEn: 'Temple Laxmi Haar', category: 'necklace', material: 'gold',
-    audience: 'ladies', occasions: ['wedding', 'festival'], weightGrams: 38,
-    description: 'दक्षिण भारतीय टेंपल डिज़ाइन — लक्ष्मी जी की पवित्र छवि और पारंपरिक कारीगरी।',
+    id: 'pd-c2', slug: 'gold-locket-collection-2',
+    nameHi: 'सोने के लॉकेट कलेक्शन — 6 डिज़ाइन्स (पारंपरिक)',
+    nameEn: 'Gold Locket Collection — 6 Designs (Traditional)',
+    category: 'pendant', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'festival', 'daily'],
+    description: 'पारंपरिक नक्काशी और बूंदी काम वाले 6 गोल्ड लॉकेट डिज़ाइन्स — हर महिला के लिए शुभ।',
+    icon: 'pendant', tone: 'gold', featured: true,
+  },
+  {
+    id: 'pd-c3', slug: 'gold-locket-collection-3',
+    nameHi: 'सोने के लॉकेट कलेक्शन — 6 डिज़ाइन्स (मिक्स्ड)',
+    nameEn: 'Gold Locket Collection — 6 Designs (Mixed)',
+    category: 'pendant', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'daily'],
+    description: 'गोल्ड लॉकेट के 6 मिक्स्ड डिज़ाइन्स — चौकोर, गोल और दिल आकार में।',
+    icon: 'pendant', tone: 'gold',
+  },
+  {
+    id: 'pd-c4', slug: 'gold-locket-collection-4',
+    nameHi: 'सोने के लॉकेट कलेक्शन — 6 डिज़ाइन्स (पैस्ली)',
+    nameEn: 'Gold Locket Collection — 6 Designs (Paisley)',
+    category: 'pendant', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'festival'],
+    description: 'पैस्ली शैली के 6 गोल्ड लॉकेट डिज़ाइन्स — झालर के साथ पारंपरिक लुक।',
+    icon: 'pendant', tone: 'gold',
+  },
+  {
+    id: 'pd-1', slug: 'gold-pendant-4-53g',
+    nameHi: 'सोने का पेंडेंट (4.53 ग्राम)',
+    nameEn: 'Gold Pendant — 4.53 grams',
+    category: 'pendant', material: 'gold',
+    audience: 'ladies', occasions: ['daily', 'wedding'],
+    weightGrams: 4.53,
+    description: 'विस्तृत नक्काशी वाला सोने का पेंडेंट — स्केल पर मापा गया वज़न 4.53 ग्राम।',
+    icon: 'pendant', tone: 'gold', featured: true,
+  },
+  {
+    id: 'pd-2', slug: 'gold-pendant-5-12g',
+    nameHi: 'सोने का पेंडेंट (5.12 ग्राम)',
+    nameEn: 'Gold Pendant — 5.12 grams',
+    category: 'pendant', material: 'gold',
+    audience: 'ladies', occasions: ['daily', 'wedding'],
+    weightGrams: 5.12,
+    description: 'फूलदार नक्काशी और झालर वाला सोने का पेंडेंट — वज़न 5.12 ग्राम।',
+    icon: 'pendant', tone: 'gold',
+  },
+  {
+    id: 'pd-3', slug: 'gold-pendant-5-04g',
+    nameHi: 'सोने का पेंडेंट (5.04 ग्राम)',
+    nameEn: 'Gold Pendant — 5.04 grams',
+    category: 'pendant', material: 'gold',
+    audience: 'ladies', occasions: ['daily', 'festival'],
+    weightGrams: 5.04,
+    description: 'चांद आकार के डिज़ाइन में सोने का पेंडेंट — वज़न 5.04 ग्राम।',
+    icon: 'pendant', tone: 'gold',
+  },
+
+  // ---------- NECKLACES ----------
+  {
+    id: 'n1', slug: 'gold-necklace-13-700g',
+    nameHi: 'सोने का हार (13.700 ग्राम)',
+    nameEn: 'Gold Necklace — 13.700 grams',
+    category: 'necklace', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'lagan'],
+    weightGrams: 13.7,
+    description: 'फूलदार केंद्रीय पेंडेंट और झालरदार किनारे — वज़न 13.700 ग्राम।',
     icon: 'necklace', tone: 'gold', featured: true,
   },
   {
-    id: 'n3', slug: 'diamond-choker-set', nameHi: 'डायमंड चोकर सेट',
-    nameEn: 'Diamond Choker Set', category: 'necklace', material: 'diamond',
-    audience: 'ladies', occasions: ['engagement', 'wedding'], weightGrams: 22,
-    description: 'सगाई और रिसेप्शन के लिए एलिगेंट डायमंड चोकर — पैन्डेंट इयररिंग्स के साथ।',
-    icon: 'set', tone: 'white', featured: true,
-  },
-  {
-    id: 'n4', slug: 'silver-oxidised-haar', nameHi: 'ऑक्सिडाइज़्ड चाँदी हार',
-    nameEn: 'Oxidised Silver Haar', category: 'necklace', material: 'silver',
-    audience: 'ladies', occasions: ['festival', 'daily'], weightGrams: 30,
-    description: 'पारंपरिक ऑक्सिडाइज़्ड फ़िनिश — रोज़मर्रा और त्योहारों के लिए।',
-    icon: 'necklace', tone: 'antique',
-  },
-  {
-    id: 'n5', slug: 'rani-haar-long', nameHi: 'रानी हार (लम्बा)',
-    nameEn: 'Rani Haar (Long Necklace)', category: 'necklace', material: 'gold',
-    audience: 'ladies', occasions: ['wedding', 'lagan'], weightGrams: 55,
-    description: 'पारंपरिक लंबा रानी हार — दुल्हन के लिए शाही लुक।',
+    id: 'n2', slug: 'gold-necklace-meenakari',
+    nameHi: 'मीनाकारी काम वाला सोने का हार',
+    nameEn: 'Gold Necklace with Meenakari Work',
+    category: 'necklace', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'festival'],
+    description: 'लाल मीनाकारी के साथ पारंपरिक डिज़ाइन का सोने का हार — झालरदार पेंडेंट।',
     icon: 'necklace', tone: 'gold',
   },
-
-  // ---------- RINGS ----------
   {
-    id: 'r1', slug: 'solitaire-engagement-ring', nameHi: 'सॉलिटेयर सगाई अंगूठी',
-    nameEn: 'Solitaire Engagement Ring', category: 'ring', material: 'diamond',
-    audience: 'ladies', occasions: ['engagement'], weightGrams: 4,
-    description: 'क्लासिक सॉलिटेयर — सगाई के लिए सदाबहार पसंद।',
+    id: 'n3', slug: 'bridal-gold-haar-set',
+    nameHi: 'दुल्हन का सोने का हार सेट (लम्बा + छोटा)',
+    nameEn: 'Bridal Gold Haar Set (Long + Short)',
+    category: 'necklace', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'lagan'],
+    description: 'दुल्हन के लिए सेट — लम्बा रानी हार, छोटा हार, मांग टीका साथ। राजशाही डिज़ाइन।',
+    icon: 'set', tone: 'gold', featured: true,
+  },
+
+  // ---------- DIAMOND / GOLD RINGS (with hallmark tags) ----------
+  {
+    id: 'r1', slug: 'diamond-ring-design-1',
+    nameHi: 'डायमंड अंगूठी 18K (LR21123)',
+    nameEn: 'Diamond Ring 18K (LR21123)',
+    category: 'ring', material: 'diamond',
+    audience: 'ladies', occasions: ['engagement', 'wedding'],
+    description: 'BIS हॉलमार्क प्रमाणित 18K सोने की डायमंड अंगूठी — डिज़ाइन कोड LR21123।',
     icon: 'ring', tone: 'white', featured: true,
   },
   {
-    id: 'r2', slug: 'gold-band-couple', nameHi: 'कपल गोल्ड बैंड (जोड़ी)',
-    nameEn: 'Couple Gold Bands (Pair)', category: 'ring', material: 'gold',
-    audience: 'unisex', occasions: ['engagement', 'wedding'], weightGrams: 8,
-    description: 'पति-पत्नी की जोड़ी के लिए मैचिंग गोल्ड बैंड — हल्के और एलिगेंट।',
-    icon: 'ring', tone: 'gold',
+    id: 'r2', slug: 'diamond-ring-2-312g',
+    nameHi: 'डायमंड अंगूठी 18K (2.312 ग्राम, LR21101)',
+    nameEn: 'Diamond Ring 18K — 2.312 g (LR21101)',
+    category: 'ring', material: 'diamond',
+    audience: 'ladies', occasions: ['engagement'],
+    weightGrams: 2.312,
+    description: 'हॉलमार्क प्रमाणित 18K डायमंड अंगूठी, नेट वज़न 2.312 ग्राम। डिज़ाइन कोड LR21101।',
+    icon: 'ring', tone: 'white', featured: true,
   },
   {
-    id: 'r3', slug: 'navratan-ring', nameHi: 'नवरत्न अंगूठी',
-    nameEn: 'Navratna Ring', category: 'ring', material: 'gold',
-    audience: 'gents', occasions: ['festival', 'daily'], weightGrams: 7,
-    description: 'नवरत्न जड़ी अंगूठी — ज्योतिषीय शुभता के लिए विशेष।',
-    icon: 'ring', tone: 'gold',
+    id: 'r3', slug: 'diamond-ring-2-912g',
+    nameHi: 'डायमंड अंगूठी 18K (2.912 ग्राम, JIGFZA)',
+    nameEn: 'Diamond Ring 18K — 2.912 g (JIGFZA)',
+    category: 'ring', material: 'diamond',
+    audience: 'ladies', occasions: ['engagement', 'birthday'],
+    weightGrams: 2.912,
+    description: 'जाली डिज़ाइन वाली 18K हॉलमार्क डायमंड अंगूठी, नेट वज़न 2.912 ग्राम।',
+    icon: 'ring', tone: 'white',
   },
   {
-    id: 'r4', slug: 'silver-toe-ring', nameHi: 'चाँदी की बिछिया',
-    nameEn: 'Silver Toe Rings (Bichiya)', category: 'ring', material: 'silver',
-    audience: 'ladies', occasions: ['wedding', 'daily'], weightGrams: 6,
-    description: 'सुहागन की पारंपरिक बिछिया — चाँदी में पारंपरिक डिज़ाइन।',
+    id: 'r4', slug: 'diamond-ring-1-480g',
+    nameHi: 'डायमंड अंगूठी 18K (1.480 ग्राम, LR21082)',
+    nameEn: 'Diamond Ring 18K — 1.480 g (LR21082)',
+    category: 'ring', material: 'diamond',
+    audience: 'ladies', occasions: ['daily', 'birthday'],
+    weightGrams: 1.480,
+    description: 'फूलदार डिज़ाइन वाली हल्की डायमंड अंगूठी 18K — नेट वज़न 1.480 ग्राम।',
+    icon: 'ring', tone: 'white',
+  },
+  {
+    id: 'r5', slug: 'gold-rings-display',
+    nameHi: 'सोने की अंगूठियाँ (3 डिज़ाइन्स)',
+    nameEn: 'Gold Rings — 3 Designs (Heart, Leaf)',
+    category: 'ring', material: 'gold',
+    audience: 'ladies', occasions: ['daily', 'birthday'],
+    description: 'सोने की अंगूठियों के 3 अलग डिज़ाइन्स — दिल, पत्ती और पारंपरिक स्टाइल।',
+    icon: 'ring', tone: 'gold',
+  },
+
+  // ---------- SILVER FASHION / KIDS RINGS (in lots) ----------
+  {
+    id: 'sr1', slug: 'silver-stone-rings-mix-1',
+    nameHi: 'चाँदी की रंगीन पत्थर अंगूठियाँ (मिक्स लॉट)',
+    nameEn: 'Silver Stone Rings — Mixed Lot',
+    category: 'ring', material: 'silver',
+    audience: 'ladies', occasions: ['daily', 'festival'],
+    description: 'अलग-अलग रंगीन पत्थर वाली चाँदी की फैशन अंगूठियाँ — फूल और दिल आकार।',
     icon: 'ring', tone: 'antique',
   },
   {
-    id: 'r5', slug: 'kids-gold-ring', nameHi: 'बच्चों की सोने की अंगूठी',
-    nameEn: 'Kids Gold Ring', category: 'ring', material: 'gold',
-    audience: 'kids', occasions: ['birthday'], weightGrams: 2,
-    description: 'जन्मदिन के लिए छोटी प्यारी अंगूठी — हल्की और सुरक्षित।',
-    icon: 'ring', tone: 'gold',
+    id: 'sr2', slug: 'silver-stone-rings-mix-2',
+    nameHi: 'चाँदी की फूल डिज़ाइन अंगूठियाँ (मिक्स लॉट)',
+    nameEn: 'Silver Flower Rings — Mixed Lot',
+    category: 'ring', material: 'silver',
+    audience: 'ladies', occasions: ['daily', 'festival'],
+    description: 'फूल आकार के रंगीन पत्थरों वाली चाँदी अंगूठियाँ — मिक्स्ड साइज़ और रंग।',
+    icon: 'ring', tone: 'antique',
+  },
+  {
+    id: 'sr3', slug: 'silver-stone-rings-mix-3',
+    nameHi: 'चाँदी की मिक्स अंगूठियाँ (हार्ट + फूल)',
+    nameEn: 'Silver Rings — Heart & Flower Mix',
+    category: 'ring', material: 'silver',
+    audience: 'ladies', occasions: ['daily'],
+    description: 'चाँदी की रोज़मर्रा पहनने वाली अंगूठियाँ — दिल और फूल पैटर्न।',
+    icon: 'ring', tone: 'antique',
   },
 
-  // ---------- MAANG TIKKA ----------
+  // ---------- GOLD CHAND BALI / EARRINGS ----------
   {
-    id: 't1', slug: 'kundan-maang-tikka', nameHi: 'कुंदन मांग टीका',
-    nameEn: 'Kundan Maang Tikka', category: 'tikka', material: 'gold',
-    audience: 'ladies', occasions: ['wedding', 'lagan'], weightGrams: 12,
-    description: 'दुल्हन के लिए कुंदन मांग टीका — पारंपरिक राजपूती शैली।',
-    icon: 'tikka', tone: 'gold', featured: true,
-  },
-  {
-    id: 't2', slug: 'pearl-tikka', nameHi: 'मोती मांग टीका',
-    nameEn: 'Pearl Maang Tikka', category: 'tikka', material: 'gold',
-    audience: 'ladies', occasions: ['engagement', 'festival'], weightGrams: 8,
-    description: 'मोती और सोने का संगम — हल्का और एलिगेंट।',
-    icon: 'tikka', tone: 'rose',
-  },
-  {
-    id: 't3', slug: 'silver-tikka', nameHi: 'चाँदी मांग टीका',
-    nameEn: 'Silver Maang Tikka', category: 'tikka', material: 'silver',
-    audience: 'ladies', occasions: ['festival'], weightGrams: 10,
-    description: 'चाँदी का पारंपरिक मांग टीका — हर त्योहार के लिए।',
-    icon: 'tikka', tone: 'antique',
-  },
-
-  // ---------- JHUMKA / EARRINGS ----------
-  {
-    id: 'j1', slug: 'gold-jhumka-bridal', nameHi: 'ब्राइडल गोल्ड झुमका',
-    nameEn: 'Bridal Gold Jhumka', category: 'jhumka', material: 'gold',
-    audience: 'ladies', occasions: ['wedding', 'lagan'], weightGrams: 18,
-    description: 'भारी ब्राइडल झुमका — दुल्हन के पूरे लुक के लिए।',
+    id: 'j1', slug: 'gold-chand-bali-1',
+    nameHi: 'सोने की चांद बाली (3-तीर डिज़ाइन)',
+    nameEn: 'Gold Chand Bali — 3-Tier Design',
+    category: 'jhumka', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'lagan'],
+    description: 'तीन-तीर वाली बड़ी सोने की चांद बाली — झालर और लाल मीनाकारी के साथ।',
     icon: 'jhumka', tone: 'gold', featured: true,
   },
   {
-    id: 'j2', slug: 'diamond-stud-earrings', nameHi: 'डायमंड स्टड इयररिंग्स',
-    nameEn: 'Diamond Stud Earrings', category: 'jhumka', material: 'diamond',
-    audience: 'ladies', occasions: ['daily', 'birthday'], weightGrams: 4,
-    description: 'रोज़मर्रा के लिए सिंपल डायमंड स्टड — एलिगेंट और हल्के।',
-    icon: 'jhumka', tone: 'white',
-  },
-  {
-    id: 'j3', slug: 'meenakari-jhumka', nameHi: 'मीनाकारी झुमका',
-    nameEn: 'Meenakari Jhumka', category: 'jhumka', material: 'gold',
-    audience: 'ladies', occasions: ['festival', 'wedding'], weightGrams: 15,
-    description: 'रंगीन मीनाकारी कारीगरी का झुमका — पारंपरिक उत्सव लुक।',
+    id: 'j2', slug: 'gold-chand-bali-2',
+    nameHi: 'सोने की चांद बाली (मोर डिज़ाइन)',
+    nameEn: 'Gold Chand Bali — Peacock Design',
+    category: 'jhumka', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'festival'],
+    description: 'मोर पैटर्न वाली तीन-तीर सोने की चांद बाली — झालर के साथ शाही लुक।',
     icon: 'jhumka', tone: 'gold',
   },
   {
-    id: 'j4', slug: 'silver-chand-bali', nameHi: 'चाँदी की चांद बाली',
-    nameEn: 'Silver Chand Bali', category: 'jhumka', material: 'silver',
-    audience: 'ladies', occasions: ['festival', 'daily'], weightGrams: 12,
-    description: 'पारंपरिक चांद बाली — चाँदी की एलिगेंट डिज़ाइन।',
-    icon: 'jhumka', tone: 'antique',
+    id: 'j3', slug: 'gold-chand-bali-3',
+    nameHi: 'सोने की चांद बाली (लाल पत्थर)',
+    nameEn: 'Gold Chand Bali — with Red Stones',
+    category: 'jhumka', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'festival'],
+    description: 'लाल पत्थरों और फूल नक्काशी वाली सोने की भारी चांद बाली।',
+    icon: 'jhumka', tone: 'gold',
+  },
+  {
+    id: 'j4', slug: 'gold-chand-bali-4',
+    nameHi: 'सोने की चांद बाली + झुमकी',
+    nameEn: 'Gold Chand Bali with Jhumki Drop',
+    category: 'jhumka', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'lagan'],
+    description: 'तीन-तीर चांद बाली, नीचे झुमकी लटकती हुई — दुल्हन के लुक के लिए।',
+    icon: 'jhumka', tone: 'gold',
+  },
+  {
+    id: 'j5', slug: 'gold-jhumka-boxed',
+    nameHi: 'सोने की चांद बाली (डिब्बा-बंद, बिक्री हेतु तैयार)',
+    nameEn: 'Gold Chand Bali (In Box)',
+    category: 'jhumka', material: 'gold',
+    audience: 'ladies', occasions: ['wedding', 'engagement'],
+    description: 'हरे पत्थर और झुमकी वाली डिब्बा-बंद सोने की चांद बाली — गिफ्ट के लिए तैयार।',
+    icon: 'jhumka', tone: 'gold',
   },
 
-  // ---------- BANGLES & BRACELETS ----------
+  // ---------- GOLD BANGLES & BRACELETS ----------
   {
-    id: 'b1', slug: 'bridal-gold-kangan', nameHi: 'ब्राइडल गोल्ड कंगन',
-    nameEn: 'Bridal Gold Kangan (Pair)', category: 'bangle', material: 'gold',
-    audience: 'ladies', occasions: ['wedding', 'lagan'], weightGrams: 60,
-    description: 'भारी कंगन की जोड़ी — दुल्हन के हाथों की शोभा।',
+    id: 'b1', slug: 'gold-bangles-3-700g',
+    nameHi: 'सोने की चूड़ी जोड़ी (3.700 ग्राम)',
+    nameEn: 'Gold Bangles Pair — 3.700 grams',
+    category: 'bangle', material: 'gold',
+    audience: 'ladies', occasions: ['daily', 'wedding'],
+    weightGrams: 3.7,
+    description: 'सिंपल पतली सोने की चूड़ी जोड़ी, बीच में नक्काशी वाला बीड — कुल वज़न 3.700 ग्राम।',
     icon: 'bangle', tone: 'gold', featured: true,
   },
   {
-    id: 'b2', slug: 'diamond-bracelet', nameHi: 'डायमंड ब्रेसलेट',
-    nameEn: 'Diamond Bracelet', category: 'bangle', material: 'diamond',
-    audience: 'ladies', occasions: ['engagement', 'birthday'], weightGrams: 14,
-    description: 'मॉडर्न डायमंड ब्रेसलेट — हर पार्टी के लिए एलिगेंट।',
-    icon: 'bangle', tone: 'white',
+    id: 'b2', slug: 'gold-bangles-4g',
+    nameHi: 'सोने की एडजस्टेबल चूड़ी जोड़ी (4 ग्राम)',
+    nameEn: 'Adjustable Gold Bangles Pair — 4 grams',
+    category: 'bangle', material: 'gold',
+    audience: 'ladies', occasions: ['daily'],
+    weightGrams: 4,
+    description: 'एडजस्टेबल साइज़ वाली सोने की हल्की चूड़ी जोड़ी — कुल वज़न 4 ग्राम।',
+    icon: 'bangle', tone: 'gold',
   },
   {
-    id: 'b3', slug: 'silver-paayal-bangle', nameHi: 'चाँदी का कंगन',
-    nameEn: 'Silver Bangles', category: 'bangle', material: 'silver',
-    audience: 'ladies', occasions: ['festival', 'daily'], weightGrams: 35,
-    description: 'चाँदी के पारंपरिक कंगन — रोज़मर्रा के लिए परफेक्ट।',
-    icon: 'bangle', tone: 'antique',
+    id: 'b3', slug: 'gold-bangles-8g',
+    nameHi: 'सोने की डिज़ाइनदार चूड़ी जोड़ी (8 ग्राम)',
+    nameEn: 'Designer Gold Bangles Pair — 8 grams',
+    category: 'bangle', material: 'gold',
+    audience: 'ladies', occasions: ['festival', 'wedding'],
+    weightGrams: 8,
+    description: 'नक्काशीदार बीड्स वाली सोने की चूड़ी जोड़ी — कुल वज़न 8 ग्राम।',
+    icon: 'bangle', tone: 'gold',
   },
   {
-    id: 'b4', slug: 'kids-gold-kara', nameHi: 'बच्चों का सोने का कड़ा',
-    nameEn: 'Kids Gold Kara', category: 'bangle', material: 'gold',
-    audience: 'kids', occasions: ['birthday'], weightGrams: 10,
-    description: 'बच्चों के जन्मदिन के लिए छोटा कड़ा — हल्का और टिकाऊ।',
+    id: 'b4', slug: 'rudraksha-gold-bracelet',
+    nameHi: 'रुद्राक्ष + सोने का ब्रेसलेट',
+    nameEn: 'Rudraksha + Gold Beads Bracelet',
+    category: 'bangle', material: 'gold',
+    audience: 'unisex', occasions: ['daily', 'festival'],
+    description: 'रुद्राक्ष और सोने के बीड्स का अध्यात्मिक ब्रेसलेट — पुरुष-महिला दोनों के लिए।',
     icon: 'bangle', tone: 'gold',
   },
 
-  // ---------- PAYAL ----------
+  // ---------- SILVER FANCY PAYAL ----------
   {
-    id: 'p1', slug: 'silver-payal-traditional', nameHi: 'पारंपरिक चाँदी पायल',
-    nameEn: 'Traditional Silver Payal', category: 'payal', material: 'silver',
-    audience: 'ladies', occasions: ['wedding', 'festival'], weightGrams: 80,
-    description: 'घुंघरूदार पारंपरिक चाँदी पायल — हर सुहागन का गहना।',
+    id: 'p1', slug: 'silver-payal-102-6g',
+    nameHi: 'चाँदी फैंसी पायल जोड़ी (102.6 ग्राम)',
+    nameEn: 'Silver Fancy Payal Pair — 102.6 grams',
+    category: 'payal', material: 'silver',
+    audience: 'ladies', occasions: ['wedding', 'festival'],
+    weightGrams: 102.6,
+    description: 'घुंघरूदार चाँदी की फैंसी पायल जोड़ी — नेट वज़न 102.6 ग्राम (MO एक्सक्लूसिव डिज़ाइन)।',
     icon: 'payal', tone: 'antique', featured: true,
   },
   {
-    id: 'p2', slug: 'kids-silver-payal', nameHi: 'बच्चों की चाँदी पायल',
-    nameEn: 'Kids Silver Payal', category: 'payal', material: 'silver',
-    audience: 'kids', occasions: ['birthday'], weightGrams: 30,
-    description: 'बच्चों के लिए घुंघरू वाली पायल — मीठी आवाज़।',
+    id: 'p2', slug: 'silver-payal-98-3g-stones',
+    nameHi: 'चाँदी पायल लाल पत्थर के साथ (98.3 ग्राम)',
+    nameEn: 'Silver Payal with Red Stones — 98.3 grams',
+    category: 'payal', material: 'silver',
+    audience: 'ladies', occasions: ['wedding', 'festival'],
+    weightGrams: 98.3,
+    description: 'लाल पत्थर वाली चाँदी की फैंसी पायल जोड़ी — नेट वज़न 98.3 ग्राम (MO91)।',
     icon: 'payal', tone: 'antique',
   },
   {
-    id: 'p3', slug: 'gold-payal-anklet', nameHi: 'सोने की पायल',
-    nameEn: 'Gold Anklet (Payal)', category: 'payal', material: 'gold',
-    audience: 'ladies', occasions: ['wedding'], weightGrams: 20,
-    description: 'दुर्लभ सोने की पायल — खास अवसरों के लिए।',
-    icon: 'payal', tone: 'gold',
+    id: 'p3', slug: 'silver-payal-118-83g-pswt',
+    nameHi: 'चाँदी माइक्रो प्रीमियम पायल (118.83 ग्राम)',
+    nameEn: 'Silver Micro Premium Payal — 118.83 grams',
+    category: 'payal', material: 'silver',
+    audience: 'ladies', occasions: ['wedding', 'lagan'],
+    weightGrams: 118.83,
+    description: 'PSW माइक्रो प्रीमियम क्वालिटी की चाँदी पायल जोड़ी — नेट वज़न 118.83 ग्राम।',
+    icon: 'payal', tone: 'antique', featured: true,
+  },
+  {
+    id: 'p4', slug: 'silver-payal-90-5g',
+    nameHi: 'चाँदी फैंसी पायल जोड़ी (90.5 ग्राम)',
+    nameEn: 'Silver Fancy Payal Pair — 90.5 grams',
+    category: 'payal', material: 'silver',
+    audience: 'ladies', occasions: ['daily', 'festival'],
+    weightGrams: 90.5,
+    description: 'हल्की चाँदी की फैंसी पायल — नेट वज़न 90.5 ग्राम।',
+    icon: 'payal', tone: 'antique',
+  },
+  {
+    id: 'p5', slug: 'silver-payal-140-2g',
+    nameHi: 'चाँदी भारी फैंसी पायल जोड़ी (140.2 ग्राम)',
+    nameEn: 'Heavy Silver Fancy Payal — 140.2 grams',
+    category: 'payal', material: 'silver',
+    audience: 'ladies', occasions: ['wedding'],
+    weightGrams: 140.2,
+    description: 'दुल्हन के लिए भारी डिज़ाइन वाली चाँदी पायल — नेट वज़न 140.2 ग्राम।',
+    icon: 'payal', tone: 'antique',
+  },
+  {
+    id: 'p6', slug: 'silver-payal-87-7g',
+    nameHi: 'चाँदी फैंसी पायल जोड़ी (87.7 ग्राम)',
+    nameEn: 'Silver Fancy Payal Pair — 87.7 grams',
+    category: 'payal', material: 'silver',
+    audience: 'ladies', occasions: ['daily'],
+    weightGrams: 87.7,
+    description: 'रोज़ पहनने वाली चाँदी फैंसी पायल — नेट वज़न 87.7 ग्राम।',
+    icon: 'payal', tone: 'antique',
   },
 
-  // ---------- NATH ----------
+  // ---------- SILVER UTENSILS (Puja & Gift) ----------
   {
-    id: 'nt1', slug: 'bridal-nath', nameHi: 'दुल्हन की नथ',
-    nameEn: 'Bridal Nath', category: 'nath', material: 'gold',
-    audience: 'ladies', occasions: ['wedding', 'lagan'], weightGrams: 8,
-    description: 'पारंपरिक दुल्हन की नथ — मोती और कुंदन वर्क के साथ।',
-    icon: 'nath', tone: 'gold', featured: true,
+    id: 'u1', slug: 'silver-glass-pair',
+    nameHi: 'चाँदी के गिलास जोड़ी (पूजा / उपहार)',
+    nameEn: 'Silver Glass Pair (Puja / Gift)',
+    category: 'utensil', material: 'silver',
+    audience: 'unisex', occasions: ['festival'],
+    description: 'पूजा-पाठ और शुभ अवसरों पर देने हेतु चाँदी के सुंदर गिलास जोड़ी।',
+    icon: 'set', tone: 'antique',
   },
   {
-    id: 'nt2', slug: 'small-nose-pin', nameHi: 'छोटी नोज़ पिन',
-    nameEn: 'Small Nose Pin', category: 'nath', material: 'gold',
-    audience: 'ladies', occasions: ['daily'], weightGrams: 1,
-    description: 'रोज़मर्रा के लिए छोटी सोने की नोज़ पिन।',
-    icon: 'nath', tone: 'gold',
-  },
-  {
-    id: 'nt3', slug: 'diamond-nose-pin', nameHi: 'डायमंड नोज़ पिन',
-    nameEn: 'Diamond Nose Pin', category: 'nath', material: 'diamond',
-    audience: 'ladies', occasions: ['daily', 'engagement'], weightGrams: 1,
-    description: 'चमकदार डायमंड नोज़ पिन — एलिगेंट लुक।',
-    icon: 'nath', tone: 'white',
+    id: 'u2', slug: 'silver-thali',
+    nameHi: 'चाँदी की थाली (पूजा हेतु)',
+    nameEn: 'Silver Thali (Puja)',
+    category: 'utensil', material: 'silver',
+    audience: 'unisex', occasions: ['festival'],
+    description: 'पूजा-पाठ हेतु चाँदी की पारंपरिक थाली — पैक्ड और तैयार।',
+    icon: 'set', tone: 'antique',
   },
 
-  // ---------- PENDANT ----------
+  // ---------- SILVER PENDANT NECKLACE ----------
   {
-    id: 'pd1', slug: 'om-gold-pendant', nameHi: 'ॐ सोने का पेंडेंट',
-    nameEn: 'Om Gold Pendant', category: 'pendant', material: 'gold',
-    audience: 'unisex', occasions: ['daily', 'birthday'], weightGrams: 4,
-    description: 'पवित्र ॐ चिन्ह वाला पेंडेंट — रोज़मर्रा पहनने के लिए।',
-    icon: 'pendant', tone: 'gold',
-  },
-  {
-    id: 'pd2', slug: 'heart-diamond-pendant', nameHi: 'दिल डायमंड पेंडेंट',
-    nameEn: 'Heart Diamond Pendant', category: 'pendant', material: 'diamond',
-    audience: 'ladies', occasions: ['birthday', 'engagement'], weightGrams: 3,
-    description: 'दिल आकार का डायमंड पेंडेंट — सरप्राइज़ गिफ्ट के लिए परफेक्ट।',
-    icon: 'pendant', tone: 'white', featured: true,
-  },
-  {
-    id: 'pd3', slug: 'ganesh-pendant', nameHi: 'गणेश जी पेंडेंट',
-    nameEn: 'Ganesh Ji Pendant', category: 'pendant', material: 'gold',
-    audience: 'unisex', occasions: ['festival', 'daily'], weightGrams: 5,
-    description: 'श्री गणेश जी की पवित्र छवि वाला पेंडेंट।',
-    icon: 'pendant', tone: 'gold',
-  },
-
-  // ---------- CHAIN ----------
-  {
-    id: 'c1', slug: 'gents-gold-chain-thick', nameHi: 'मर्दाना मोटी सोने की चेन',
-    nameEn: 'Gents Thick Gold Chain', category: 'chain', material: 'gold',
-    audience: 'gents', occasions: ['wedding', 'daily'], weightGrams: 25,
-    description: 'मर्दों के लिए मोटी सोने की चेन — रॉयल लुक।',
-    icon: 'chain', tone: 'gold', featured: true,
-  },
-  {
-    id: 'c2', slug: 'ladies-thin-chain', nameHi: 'महिलाओं की पतली चेन',
-    nameEn: 'Ladies Thin Gold Chain', category: 'chain', material: 'gold',
-    audience: 'ladies', occasions: ['daily', 'birthday'], weightGrams: 6,
-    description: 'महिलाओं के लिए हल्की पतली चेन — पेंडेंट के साथ पहनें।',
-    icon: 'chain', tone: 'gold',
-  },
-  {
-    id: 'c3', slug: 'silver-chain-gents', nameHi: 'मर्दों की चाँदी चेन',
-    nameEn: 'Gents Silver Chain', category: 'chain', material: 'silver',
-    audience: 'gents', occasions: ['daily'], weightGrams: 30,
-    description: 'मर्दों के लिए चाँदी की मज़बूत चेन — डेली वियर।',
-    icon: 'chain', tone: 'antique',
-  },
-
-  // ---------- KADA (GENTS) ----------
-  {
-    id: 'k1', slug: 'gents-gold-kada', nameHi: 'मर्दों का सोने का कड़ा',
-    nameEn: 'Gents Gold Kada', category: 'kada', material: 'gold',
-    audience: 'gents', occasions: ['wedding', 'lagan'], weightGrams: 45,
-    description: 'मर्दों के लिए भारी सोने का कड़ा — शादी और खास मौकों पर।',
-    icon: 'kada', tone: 'gold', featured: true,
-  },
-  {
-    id: 'k2', slug: 'silver-kada', nameHi: 'चाँदी का कड़ा',
-    nameEn: 'Silver Kada', category: 'kada', material: 'silver',
-    audience: 'gents', occasions: ['daily', 'festival'], weightGrams: 60,
-    description: 'पारंपरिक चाँदी का कड़ा — सिख और राजपूत स्टाइल।',
-    icon: 'kada', tone: 'antique',
-  },
-  {
-    id: 'k3', slug: 'diamond-kada-gents', nameHi: 'डायमंड कड़ा',
-    nameEn: 'Diamond Kada (Gents)', category: 'kada', material: 'diamond',
-    audience: 'gents', occasions: ['wedding', 'engagement'], weightGrams: 30,
-    description: 'मॉडर्न डायमंड कड़ा — एलिगेंट और रॉयल।',
-    icon: 'kada', tone: 'white',
+    id: 'sn1', slug: 'silver-heart-arrow-chain',
+    nameHi: 'चाँदी की हार्ट-एरो चेन (S925)',
+    nameEn: 'Silver Heart-Arrow Chain (S925)',
+    category: 'necklace', material: 'silver',
+    audience: 'ladies', occasions: ['birthday', 'daily'],
+    description: 'पंखों वाले डिज़ाइन का चाँदी का पेंडेंट + पीला पत्थर — Heart Arrow Original handmade S925 silver।',
+    icon: 'necklace', tone: 'white',
   },
 ];
 
