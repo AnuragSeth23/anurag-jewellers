@@ -48,26 +48,27 @@ export default function Header() {
         </nav>
 
         {/* Phone + hamburger */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
+          {/* Desktop / tablet: full phone button */}
           <a
             href={`tel:${shop.phones[0].replace(/\s/g, '')}`}
             className="hidden sm:inline-flex btn-primary text-xs sm:text-sm !px-3 !py-2"
           >
             📞 {shop.phones[0]}
           </a>
-          {/* Mobile call button */}
-          <a
-            href={`tel:${shop.phones[0].replace(/\s/g, '')}`}
-            aria-label="Call"
-            className="sm:hidden inline-flex items-center justify-center bg-gold-gradient text-white w-11 h-11 rounded-full shadow-gold"
-          >
-            📞
-          </a>
-          {/* Hamburger button (mobile only) */}
+          {/* Mobile: hamburger only (Call/WA already in bottom bar) */}
           <button
             onClick={() => setOpen(!open)}
             aria-label="Menu"
-            className="lg:hidden w-11 h-11 inline-flex items-center justify-center rounded-full border border-gold-300 bg-white"
+            className="sm:hidden w-11 h-11 inline-flex items-center justify-center rounded-full bg-gold-gradient text-white shadow-gold"
+          >
+            <span className="text-xl">{open ? '✕' : '☰'}</span>
+          </button>
+          {/* Tablet hamburger between sm and lg */}
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            className="hidden sm:inline-flex lg:hidden w-11 h-11 items-center justify-center rounded-full border border-gold-300 bg-white"
           >
             <span className="text-xl maroon-text">{open ? '✕' : '☰'}</span>
           </button>
