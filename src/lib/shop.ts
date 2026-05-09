@@ -30,7 +30,7 @@ export const shop = {
     weekdays: '10:00 AM - 9:00 PM',
     sunday: '10:00 AM - 8:00 PM',
   },
-  blessings: ['जय श्रीकृष्ण', 'हर हर महादेव', 'जय हनुमान'],
+  blessings: ['जय श्रीकृष्ण', 'हर हर महादेव', 'जय श्री बालाजी महाराज', 'जय हनुमान'],
   social: {
     instagram: '',
     facebook:  '',
