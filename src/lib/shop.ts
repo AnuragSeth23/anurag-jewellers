@@ -23,8 +23,8 @@ export const shop = {
     country: 'India',
     full: 'Korauti Chauraha, Yogesh Singh Katra, Mangalpur, Varanasi, Uttar Pradesh - 221101',
   },
-  phones: ['+91 8127504900', '+91 8127535687'],
-  whatsapp: '918127504900',
+  phones: ['+91 8127535627', '+91 8127535687'],
+  whatsapp: '918127535627',
   email: 'info@anuragjewellers.in',
   hours: {
     weekdays: '10:00 AM - 9:00 PM',
