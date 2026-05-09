@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BlessingsBar from '@/components/BlessingsBar';
 import WhatsAppFloat from '@/components/WhatsAppFloat';
+import MobileBottomBar from '@/components/MobileBottomBar';
 import { shop, siteUrl } from '@/lib/shop';
 
 const description =
@@ -102,12 +103,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="pb-20 lg:pb-0">
         <BlessingsBar />
         <Header />
         <main>{children}</main>
         <Footer />
         <WhatsAppFloat />
+        <MobileBottomBar />
       </body>
     </html>
   );

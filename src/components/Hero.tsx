@@ -21,46 +21,39 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
            style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #73591f 1px, transparent 0)', backgroundSize: '32px 32px' }} />
 
-      <div className="container mx-auto px-4 py-12 md:py-20 grid md:grid-cols-2 gap-10 items-center relative">
+      <div className="container mx-auto px-4 py-8 md:py-20 grid md:grid-cols-2 gap-6 md:gap-10 items-center relative">
         {/* LEFT — Brand & CTAs */}
         <div className="text-center md:text-left">
-          <div className="inline-flex items-center gap-2 bg-gold-50 border border-gold-300 px-4 py-1.5 rounded-full mb-5">
+          <div className="inline-flex items-center gap-2 bg-gold-50 border border-gold-300 px-4 py-1.5 rounded-full mb-4 md:mb-5">
             <span className="w-2 h-2 rounded-full bg-maroon-700 animate-pulse" />
-            <span className="text-[11px] uppercase tracking-[.3em] text-gold-700 font-medium">
+            <span className="text-[10px] sm:text-[11px] uppercase tracking-[.25em] text-gold-700 font-medium">
               Estd. {shop.establishedYear} · Varanasi
             </span>
           </div>
 
           {/* Bigger heading with proper line-height so matras are not cut */}
-          <h1 className="text-6xl md:text-[5.5rem] font-bold gold-text mb-3 hindi"
-              style={{ lineHeight: 1.15, paddingBottom: '0.1em' }}>
+          <h1 className="text-[2.75rem] sm:text-6xl md:text-[5.5rem] font-bold gold-text mb-2 md:mb-3 hindi"
+              style={{ lineHeight: 1.3, paddingBottom: '0.18em' }}>
             {shop.nameHi}
           </h1>
 
-          <h2 className="text-2xl md:text-3xl text-maroon-700 tracking-[.25em] font-serif mb-6"
+          <h2 className="text-lg sm:text-2xl md:text-3xl text-maroon-700 tracking-[.2em] sm:tracking-[.25em] font-serif mb-4 md:mb-6"
               style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 500 }}>
             ANURAG JEWELLERS
           </h2>
 
-          <div className="divider-ornament my-5 max-w-md md:max-w-sm md:mx-0">✦</div>
+          <div className="divider-ornament my-3 md:my-5 max-w-md md:max-w-sm md:mx-0">✦</div>
 
-          <p className="hindi text-stone-700 text-xl leading-relaxed mb-1">{shop.tagline}</p>
-          <p className="text-stone-500 italic text-sm mb-8">{shop.taglineEn}</p>
+          <p className="hindi text-stone-700 text-base sm:text-xl leading-relaxed mb-1">{shop.tagline}</p>
+          <p className="text-stone-500 italic text-xs sm:text-sm mb-5 md:mb-8">{shop.taglineEn}</p>
 
-          <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-7">
-            <Link href="/gallery" className="btn-primary text-base">
+          <div className="flex flex-wrap gap-2 md:gap-3 justify-center md:justify-start mb-5 md:mb-7">
+            <Link href="/gallery" className="btn-primary text-sm md:text-base">
               📸 पूरी गैलरी देखें
             </Link>
-            <Link href="/collections" className="btn-outline text-base">
+            <Link href="/collections" className="btn-outline text-sm md:text-base">
               💎 कैटेगरी
             </Link>
-            <a
-              href={`https://wa.me/${shop.whatsapp}`}
-              target="_blank" rel="noreferrer"
-              className="btn-outline text-base !border-[#25D366] !text-[#25D366]"
-            >
-              💬 WhatsApp
-            </a>
           </div>
 
           {/* Trust strip with check icons (proper alignment) */}
@@ -89,8 +82,8 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="hindi text-4xl md:text-5xl font-bold gold-text mb-1"
-                 style={{ lineHeight: 1.2, paddingBottom: '.1em' }}>
+            <div className="hindi text-3xl sm:text-4xl md:text-5xl font-bold gold-text mb-1"
+                 style={{ lineHeight: 1.35, paddingBottom: '.18em' }}>
               अनुराग ज्वैलर्स
             </div>
             <div className="text-xs uppercase tracking-[.3em] text-maroon-700 mb-3">
