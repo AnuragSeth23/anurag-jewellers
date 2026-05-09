@@ -28,6 +28,18 @@ h1, h2, h3, h4 {
   letter-spacing: 0.5px;
 }
 
+/* Hindi/Devanagari needs extra vertical space so matras (ै, ी, ्र) don't get cut.
+ * Apply this everywhere we render Devanagari headings. */
+.hindi {
+  font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
+  line-height: 1.45;
+  padding-bottom: 0.05em;
+}
+h1.hindi, h2.hindi, h3.hindi {
+  line-height: 1.3;
+  padding-bottom: 0.12em;
+}
+
 /* gold-foil shimmer used on big headings */
 .gold-text {
   background: linear-gradient(135deg,#d4a73a 0%,#b8902b 35%,#fbf6ea 50%,#b8902b 65%,#73591f 100%);
@@ -46,10 +58,6 @@ h1, h2, h3, h4 {
   color: var(--maroon);
 }
 
-/* Devanagari script gets the serif Devanagari font automatically */
-.hindi {
-  font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
-}
 
 /* Decorative divider */
 .divider-ornament {
@@ -133,3 +141,16 @@ h1, h2, h3, h4 {
 }
 .fancy-heading::before { left: 0; }
 .fancy-heading::after  { right: 0; }
+
+/* Auto-scroll marquee for photo ribbon */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee {
+  animation: marquee 60s linear infinite;
+  width: max-content;
+}
+.marquee:hover {
+  animation-play-state: paused;
+}

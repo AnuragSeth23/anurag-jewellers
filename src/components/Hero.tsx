@@ -1,69 +1,143 @@
 import Link from 'next/link';
 import { shop } from '@/lib/shop';
 
+const showcasePhotos = [
+  '/products/p001.jpg', // gold locket collection
+  '/products/p020.jpg', // gold chand bali
+  '/products/p005.jpg', // gold necklace 13.700g
+  '/products/p050.jpg', // gold bangles 3.700g
+];
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-cream via-gold-50 to-gold-100">
       {/* Decorative ornaments */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-gold-shine blur-3xl"/>
-        <div className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-gold-shine blur-3xl"/>
+        <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-gold-shine blur-3xl" />
+        <div className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-gold-shine blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center relative">
+      {/* Subtle decorative pattern */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #73591f 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+
+      <div className="container mx-auto px-4 py-12 md:py-20 grid md:grid-cols-2 gap-10 items-center relative">
+        {/* LEFT — Brand & CTAs */}
         <div className="text-center md:text-left">
-          <div className="text-xs uppercase tracking-[.4em] text-gold-700 mb-3">
-            Estd. {shop.establishedYear} · Varanasi
+          <div className="inline-flex items-center gap-2 bg-gold-50 border border-gold-300 px-4 py-1.5 rounded-full mb-5">
+            <span className="w-2 h-2 rounded-full bg-maroon-700 animate-pulse" />
+            <span className="text-[11px] uppercase tracking-[.3em] text-gold-700 font-medium">
+              Estd. {shop.establishedYear} · Varanasi
+            </span>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold gold-text leading-none mb-2 hindi">
+
+          {/* Bigger heading with proper line-height so matras are not cut */}
+          <h1 className="text-6xl md:text-[5.5rem] font-bold gold-text mb-3 hindi"
+              style={{ lineHeight: 1.15, paddingBottom: '0.1em' }}>
             {shop.nameHi}
           </h1>
-          <h2 className="text-xl md:text-2xl text-maroon-700 tracking-widest font-serif mb-5">
-            {shop.nameEn}
-          </h2>
-          <p className="hindi text-stone-700 text-lg leading-relaxed mb-2">{shop.tagline}</p>
-          <p className="text-stone-500 italic text-sm mb-7">{shop.taglineEn}</p>
 
-          <div className="flex flex-wrap gap-3 justify-center md:justify-start">
-            <Link href="/collections" className="btn-primary">
-              ज्वैलरी देखें · View Collection
+          <h2 className="text-2xl md:text-3xl text-maroon-700 tracking-[.25em] font-serif mb-6"
+              style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 500 }}>
+            ANURAG JEWELLERS
+          </h2>
+
+          <div className="divider-ornament my-5 max-w-md md:max-w-sm md:mx-0">✦</div>
+
+          <p className="hindi text-stone-700 text-xl leading-relaxed mb-1">{shop.tagline}</p>
+          <p className="text-stone-500 italic text-sm mb-8">{shop.taglineEn}</p>
+
+          <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-7">
+            <Link href="/gallery" className="btn-primary text-base">
+              📸 पूरी गैलरी देखें
             </Link>
-            <a href={`https://wa.me/${shop.whatsapp}`} target="_blank" rel="noreferrer" className="btn-outline">
+            <Link href="/collections" className="btn-outline text-base">
+              💎 कैटेगरी
+            </Link>
+            <a
+              href={`https://wa.me/${shop.whatsapp}`}
+              target="_blank" rel="noreferrer"
+              className="btn-outline text-base !border-[#25D366] !text-[#25D366]"
+            >
               💬 WhatsApp
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start text-xs text-stone-600">
-            <span>✓ Hallmark Gold</span>
-            <span>✓ Certified Diamonds</span>
-            <span>✓ BIS 916</span>
-            <span>✓ Lifetime Buyback</span>
+          {/* Trust strip with check icons (proper alignment) */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-2 gap-x-4 text-xs text-stone-700">
+            {[
+              ['🏅', 'BIS Hallmark'],
+              ['✨', '916 Pure Gold'],
+              ['💎', 'Certified Diamonds'],
+              ['🤝', 'Lifetime Buyback'],
+            ].map(([icon, label]) => (
+              <div key={label} className="flex items-center gap-1.5">
+                <span>{icon}</span>
+                <span className="font-medium">{label}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Decorative banner replica */}
-        <div className="relative">
-          <div className="bg-white rounded-2xl shadow-gold border-2 border-gold-300 p-8 text-center">
-            <div className="hindi text-sm tracking-widest text-gold-700 mb-2">॥ शुभ उद्घाटन ॥</div>
-            <div className="hindi text-3xl font-bold gold-text mb-1">अनुराग ज्वैलर्स</div>
-            <div className="text-xs uppercase tracking-[.3em] text-maroon-700 mb-4">est. {shop.establishedYear}</div>
+        {/* RIGHT — Banner-style card with REAL photos */}
+        <div className="relative md:pl-6">
+          <div className="bg-white rounded-3xl shadow-2xl border-2 border-gold-300 p-6 md:p-8 text-center overflow-hidden">
+            {/* Top religious banner */}
+            <div className="bg-gradient-to-r from-maroon-700 via-maroon-800 to-maroon-700 -mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-5 py-3">
+              <div className="hindi text-sm tracking-[.3em] text-gold-200 font-medium">
+                ॥ शुभ उद्घाटन ॥
+              </div>
+            </div>
+
+            <div className="hindi text-4xl md:text-5xl font-bold gold-text mb-1"
+                 style={{ lineHeight: 1.2, paddingBottom: '.1em' }}>
+              अनुराग ज्वैलर्स
+            </div>
+            <div className="text-xs uppercase tracking-[.3em] text-maroon-700 mb-3">
+              est. {shop.establishedYear}
+            </div>
+
             <div className="divider-ornament my-4">✦</div>
 
-            <div className="grid grid-cols-3 gap-3 mb-5">
-              {['💍', '👑', '📿'].map((e, i) => (
-                <div key={i} className="aspect-square bg-gold-50 border border-gold-200 rounded-lg flex items-center justify-center text-3xl">
-                  {e}
-                </div>
+            {/* REAL product photos showcase */}
+            <div className="grid grid-cols-2 gap-3 mb-5">
+              {showcasePhotos.map((src, i) => (
+                <Link
+                  key={src}
+                  href="/gallery"
+                  className="group relative aspect-square overflow-hidden rounded-xl border-2 border-gold-200 bg-gold-50 hover:border-gold-400 transition-all"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
+                    alt={`Anurag Jewellers showcase ${i + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-2">
+                    <span className="text-white text-xs font-medium">View →</span>
+                  </div>
+                </Link>
               ))}
             </div>
 
-            <div className="hindi text-stone-700 text-sm leading-relaxed">
-              बाबा विश्वनाथ जी की असीम<br/>अनुकम्पा एवं आशीर्वाद से
+            <div className="hindi text-stone-700 text-sm leading-relaxed mb-3">
+              बाबा विश्वनाथ जी की असीम<br />अनुकम्पा एवं आशीर्वाद से
             </div>
-            <div className="divider-ornament my-3"/>
-            <div className="text-xs hindi text-stone-600">
-              प्रो. {shop.proprietor.nameHi} <br/>
-              निवेदक: {shop.founder.nameHi}
+
+            <div className="divider-ornament my-3" />
+
+            <div className="text-xs hindi text-stone-600 leading-relaxed">
+              <div><span className="text-gold-700">प्रो.</span> {shop.proprietor.nameHi}</div>
+              <div><span className="text-gold-700">निवेदक:</span> {shop.founder.nameHi}</div>
+            </div>
+          </div>
+
+          {/* Floating accent badges */}
+          <div className="hidden md:flex absolute -top-3 -right-3 bg-maroon-700 text-gold-100 rounded-full w-20 h-20 items-center justify-center shadow-lg rotate-12 text-center">
+            <div>
+              <div className="text-[10px] hindi">शुद्ध</div>
+              <div className="text-lg font-bold">916</div>
+              <div className="text-[10px]">GOLD</div>
             </div>
           </div>
         </div>
