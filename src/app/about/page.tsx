@@ -18,7 +18,7 @@ export default function AboutPage() {
       <div className="bg-white border border-gold-200 rounded-2xl p-8 md:p-12 shadow-gold space-y-6">
         <p className="hindi text-lg leading-relaxed text-stone-700">
           <span className="text-2xl maroon-text font-semibold">{shop.nameHi}</span> की स्थापना
-          17 अप्रैल {shop.establishedYear} को बाबा विश्वनाथ जी की असीम अनुकम्पा एवं आशीर्वाद से हुई।
+          वर्ष {shop.establishedYear} में बाबा विश्वनाथ जी की असीम अनुकम्पा एवं आशीर्वाद से हुई।
           वाराणसी के मंगलपुर में, कौरौती चौराहे पर स्थित हमारी दुकान, परंपरा और
           आधुनिकता का अनूठा संगम है।
         </p>

@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="container mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center relative">
         <div className="text-center md:text-left">
           <div className="text-xs uppercase tracking-[.4em] text-gold-700 mb-3">
-            Estd. 17 April {shop.establishedYear} · Varanasi
+            Estd. {shop.establishedYear} · Varanasi
           </div>
           <h1 className="text-5xl md:text-7xl font-bold gold-text leading-none mb-2 hindi">
             {shop.nameHi}
@@ -46,7 +46,7 @@ export default function Hero() {
           <div className="bg-white rounded-2xl shadow-gold border-2 border-gold-300 p-8 text-center">
             <div className="hindi text-sm tracking-widest text-gold-700 mb-2">॥ शुभ उद्घाटन ॥</div>
             <div className="hindi text-3xl font-bold gold-text mb-1">अनुराग ज्वैलर्स</div>
-            <div className="text-xs uppercase tracking-[.3em] text-maroon-700 mb-4">est. 17.04.2022</div>
+            <div className="text-xs uppercase tracking-[.3em] text-maroon-700 mb-4">est. {shop.establishedYear}</div>
             <div className="divider-ornament my-4">✦</div>
 
             <div className="grid grid-cols-3 gap-3 mb-5">
