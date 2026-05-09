@@ -153,6 +153,53 @@ Naye domain ko Search Console mein add karein, GMB profile mein website URL upda
 
 ---
 
+## Phase 7 — Admin Upload Page setup (one-time, 10 min) 🔒
+
+Aapki website pe `/admin/upload` page hai jahan se aap khud naye photos upload kar sakte hain (sirf aap, password se protected). Ye live page tabhi kaam karega jab Vercel par 4 environment variables set ho jaayein.
+
+### 7.1 GitHub Personal Access Token banayein
+1. [github.com/settings/tokens?type=beta](https://github.com/settings/tokens?type=beta) kholo
+2. **"Generate new token"** click karein
+3. Token name: `anurag-jewellers-admin`
+4. Expiration: **No expiration** (ya 1 year)
+5. **Repository access** → Only select repositories → `anurag-jewellers` select karein
+6. **Permissions** → Repository permissions → **Contents** → **Read and write** select karein
+7. Niche **"Generate token"** click karein
+8. Token copy karein (`github_pat_...` se shuru hota hai). **Yeh dobara nahi dikhega — turant copy karein**
+
+### 7.2 Vercel par env vars set karein
+1. Vercel dashboard → `anurag-jewellers` project → **Settings** → **Environment Variables**
+2. Yeh 4 variables add karein:
+
+| Name | Value | Notes |
+|------|-------|-------|
+| `ADMIN_PASSWORD` | (apna password — kuch yaad rakhne layak) | Jaise: `anurag@varanasi2022` |
+| `GITHUB_TOKEN` | `github_pat_...` (jo abhi copy kiya) | |
+| `GITHUB_OWNER` | `AnuragSeth23` | |
+| `GITHUB_REPO` | `anurag-jewellers` | |
+
+3. Har variable add karne ke baad **Save**
+4. **Deployments** tab → top deployment ke `...` menu → **Redeploy** (env vars lagane ke liye)
+
+### 7.3 Use kaise karein
+1. Browser me kholo: `https://anurag-jewellers.vercel.app/admin/upload`
+2. Apna `ADMIN_PASSWORD` daalein
+3. Photos chunkar **"फोटो अपलोड करें"** click karein
+4. Photos seedha aapke GitHub repo me commit ho jaayengi
+5. Vercel 1-2 minute me automatic redeploy karke live kar dega
+6. Gallery page par dikhne lagengi ✨
+
+### 7.4 Password reset karna hai?
+Vercel → Settings → Environment Variables → `ADMIN_PASSWORD` → Edit → naya password → Save → Redeploy.
+
+### ⚠️ Security
+- `/admin/upload` page Google par index nahi hota (`robots: noindex`)
+- Sirf jiske paas password hai woh upload kar sakta hai
+- GitHub Token sirf is repo ke liye hai, doosri jagah kaam nahi karega
+- Token compromise ho jaye toh GitHub par jaake **Revoke** kar sakte hain
+
+---
+
 ## Phase 6 — Monthly Maintenance (5 min/month)
 
 ### Naye products add karne ka tarika:

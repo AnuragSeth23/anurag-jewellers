@@ -4,7 +4,7 @@ import { categories } from '@/lib/products';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const staticUrls = ['', '/collections', '/about', '/contact'];
+  const staticUrls = ['', '/gallery', '/collections', '/about', '/contact'];
 
   return [
     ...staticUrls.map(p => ({

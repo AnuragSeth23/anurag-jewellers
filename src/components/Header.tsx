@@ -3,6 +3,7 @@ import { shop } from '@/lib/shop';
 
 const nav = [
   { href: '/',                 hi: 'मुख्य पृष्ठ',  en: 'Home' },
+  { href: '/gallery',          hi: 'पूरी गैलरी',  en: 'Gallery' },
   { href: '/collections',      hi: 'सभी ज्वैलरी', en: 'Collections' },
   { href: '/collections/necklace', hi: 'हार-सेट',  en: 'Necklaces' },
   { href: '/collections/ring',     hi: 'अंगूठी',  en: 'Rings' },

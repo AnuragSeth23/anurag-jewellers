@@ -43,59 +43,63 @@ export const categories = [
 
 export type CategorySlug = typeof categories[number]['slug'];
 
-/** Unsplash CDN URL — royalty-free, commercial use allowed. */
-const u = (id: string) =>
-  `https://images.unsplash.com/photo-${id}?w=800&h=800&fit=crop&q=80&auto=format`;
+/** Local photo from /public/products/ — owner's actual jewelry items. */
+const local = (n: number) => `/products/p${String(n).padStart(3, '0')}.jpg`;
 
-/** slug → real HD photo. Replace any of these with shop's own Cloudinary URL when ready. */
+/** Owner's real photos (139 total) live in /public/products/.
+ *  First 36 mapped to the existing categorised products below; the rest
+ *  appear on the /gallery page. */
 const productImages: Record<string, string> = {
-  // necklaces / sets
-  'rajwadi-bridal-haar':       u('1654764746221-7bc58ef4dbad'),
-  'temple-laxmi-haar':         u('1685970731194-e27b477e87ba'),
-  'diamond-choker-set':        u('1611583027838-515a1087afdb'),
-  'silver-oxidised-haar':      u('1605884878538-6468614df578'),
-  'rani-haar-long':            u('1601121141461-9d6647bca1ed'),
-  // rings
-  'solitaire-engagement-ring': u('1543294001-f7cd5d7fb516'),
-  'gold-band-couple':          u('1611955167811-4711904bb9f8'),
-  'navratan-ring':             u('1626122780071-c09d403b8e32'),
-  'silver-toe-ring':           u('1561812350-932aed735105'),
-  'kids-gold-ring':            u('1589207212797-cfd546dea0fe'),
+  // necklaces / sets — gold pendants & necklaces
+  'rajwadi-bridal-haar':       local(1),
+  'temple-laxmi-haar':         local(2),
+  'diamond-choker-set':        local(120),
+  'silver-oxidised-haar':      local(121),
+  'rani-haar-long':            local(3),
+  // rings — single gold/diamond rings
+  'solitaire-engagement-ring': local(10),
+  'gold-band-couple':          local(11),
+  'navratan-ring':             local(12),
+  'silver-toe-ring':           local(100),
+  'kids-gold-ring':            local(13),
   // maang tikka
-  'kundan-maang-tikka':        u('1760461804065-febded675ae2'),
-  'pearl-tikka':               u('1751606615009-30f61ff1a510'),
-  'silver-tikka':              u('1742891600299-31fbb82ec9f1'),
+  'kundan-maang-tikka':        local(4),
+  'pearl-tikka':               local(5),
+  'silver-tikka':              local(6),
   // jhumka / earrings
-  'gold-jhumka-bridal':        u('1578503803703-e818b8a0e00b'),
-  'diamond-stud-earrings':     u('1621939745912-aad97fd3a34d'),
-  'meenakari-jhumka':          u('1693212793204-bcea856c75fe'),
-  'silver-chand-bali':         u('1611653842967-39eb011b2ca3'),
+  'gold-jhumka-bridal':        local(20),
+  'diamond-stud-earrings':     local(21),
+  'meenakari-jhumka':          local(22),
+  'silver-chand-bali':         local(23),
   // bangles
-  'bridal-gold-kangan':        u('1626784214765-754de4c5a77b'),
-  'diamond-bracelet':          u('1638617501607-5dfb8b079ebf'),
-  'silver-paayal-bangle':      u('1690175867343-2af70ea57537'),
-  'kids-gold-kara':            u('1611598935678-c88dca238fce'),
+  'bridal-gold-kangan':        local(50),
+  'diamond-bracelet':          local(51),
+  'silver-paayal-bangle':      local(52),
+  'kids-gold-kara':            local(53),
   // payal
-  'silver-payal-traditional':  u('1744722091259-ed1cf11ac97f'),
-  'kids-silver-payal':         u('1588658163621-f853df4bbe86'),
-  'gold-payal-anklet':         u('1651395835317-d2868e8ebcac'),
+  'silver-payal-traditional':  local(60),
+  'kids-silver-payal':         local(61),
+  'gold-payal-anklet':         local(62),
   // nath
-  'bridal-nath':               u('1762709414326-67c887a8dc98'),
-  'small-nose-pin':            u('1765055821625-165a1b616ad6'),
-  'diamond-nose-pin':          u('1762709414563-27aebf8f46f8'),
+  'bridal-nath':               local(70),
+  'small-nose-pin':            local(71),
+  'diamond-nose-pin':          local(72),
   // pendants
-  'om-gold-pendant':           u('1773612968627-d1dd72e9d8be'),
-  'heart-diamond-pendant':     u('1709324275524-bc6a283e53a3'),
-  'ganesh-pendant':            u('1758995115560-59c10d6cc28f'),
+  'om-gold-pendant':           local(80),
+  'heart-diamond-pendant':     local(81),
+  'ganesh-pendant':            local(82),
   // chains
-  'gents-gold-chain-thick':    u('1773832190768-b4c4667ceeb4'),
-  'ladies-thin-chain':         u('1773929269191-813b7eca6954'),
-  'silver-chain-gents':        u('1611107683227-e9060eccd846'),
+  'gents-gold-chain-thick':    local(90),
+  'ladies-thin-chain':         local(91),
+  'silver-chain-gents':        local(122),
   // kada
-  'gents-gold-kada':           u('1728381031272-ba3f537feadd'),
-  'silver-kada':               u('1679156271456-d6068c543ee7'),
-  'diamond-kada-gents':        u('1620656798579-1984d9e87df7'),
+  'gents-gold-kada':           local(54),
+  'silver-kada':               local(55),
+  'diamond-kada-gents':        local(56),
 };
+
+// galleryPhotos is computed at build time inside src/app/gallery/page.tsx
+// (it reads /public/products directly so newly uploaded photos auto-appear).
 
 const _rawProducts: Product[] = [
   // ---------- BRIDAL NECKLACE SETS ----------
