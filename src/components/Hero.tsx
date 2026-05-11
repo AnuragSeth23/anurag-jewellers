@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { shop } from '@/lib/shop';
+import BrandTitle from './BrandTitle';
 
 const showcasePhotos = [
   '/products/p140.jpg', // gold chains hung on hand — premium showroom shot
@@ -37,19 +38,13 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="hindi font-bold gold-text mb-1"
-                style={{ fontSize: 'clamp(2rem, 9vw, 3rem)', lineHeight: 1.4, paddingBottom: '0.18em' }}>
-              {shop.nameHi}
-            </h1>
+            <BrandTitle
+              hindiName={shop.nameHi}
+              englishName="ANURAG JEWELLERS"
+              size="compact"
+            />
 
-            <h2 className="text-base text-maroon-700 tracking-[.2em] mb-3"
-                style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 500 }}>
-              ANURAG JEWELLERS
-            </h2>
-
-            <div className="divider-ornament my-3">✦</div>
-
-            <p className="text-stone-700 text-sm leading-relaxed">Trusted in Gold &amp; Silver</p>
+            <p className="text-stone-700 text-sm leading-relaxed mt-2">Trusted in Gold &amp; Silver</p>
             <p className="text-stone-500 italic text-xs mb-4">A Family Tradition Since 2022</p>
 
             <div className="grid grid-cols-2 gap-2 mb-4">
@@ -111,19 +106,15 @@ export default function Hero() {
             </span>
           </div>
 
-          <h1 className="text-7xl xl:text-[5.5rem] font-bold gold-text mb-3 hindi"
-              style={{ lineHeight: 1.35, paddingBottom: '0.18em' }}>
-            {shop.nameHi}
-          </h1>
+          <div className="md:items-start md:text-left max-w-xl">
+            <BrandTitle
+              hindiName={shop.nameHi}
+              englishName="ANURAG JEWELLERS"
+              size="large"
+            />
+          </div>
 
-          <h2 className="text-3xl text-maroon-700 tracking-[.25em] mb-6"
-              style={{ fontFamily: '"Cormorant Garamond", serif', fontWeight: 500 }}>
-            ANURAG JEWELLERS
-          </h2>
-
-          <div className="divider-ornament my-5 max-w-sm mx-0">✦</div>
-
-          <p className="text-stone-700 text-xl leading-relaxed mb-1">Trusted in Gold &amp; Silver</p>
+          <p className="text-stone-700 text-xl leading-relaxed mb-1 mt-4">Trusted in Gold &amp; Silver</p>
           <p className="text-stone-500 italic text-sm mb-8">A Family Tradition Since 2022</p>
 
           <div className="flex flex-wrap gap-3 mb-7">

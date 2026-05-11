@@ -159,3 +159,182 @@ h1.hindi, h2.hindi, h3.hindi {
 .marquee:hover {
   animation-play-state: paused;
 }
+
+/* ===========================
+   BRAND TITLE — premium animated wordmark
+   =========================== */
+.brand-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 0;
+}
+
+/* Crown — gentle floating */
+.brand-crown {
+  margin-bottom: 4px;
+  animation: crown-bob 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px rgba(115,89,31,0.35));
+}
+@keyframes crown-bob {
+  0%, 100% { transform: translateY(0)    rotate(0deg); }
+  50%      { transform: translateY(-4px) rotate(0.5deg); }
+}
+
+/* Glow behind the name (pulsing) */
+.brand-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  width: 80%;
+  height: 60%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse at center,
+              rgba(212,167,58,0.35) 0%,
+              rgba(212,167,58,0.10) 40%,
+              transparent 70%);
+  filter: blur(28px);
+  animation: glow-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* Hindi name — animated gold shimmer + 3D depth */
+.brand-hindi {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 6px;
+  background:
+    linear-gradient(135deg,
+      #fbe7a0 0%,
+      #d4a73a 25%,
+      #b8902b 40%,
+      #fff5d0 50%,
+      #b8902b 60%,
+      #73591f 75%,
+      #b8902b 90%,
+      #fbe7a0 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 1px 0   rgba(255,243,192,0.5),
+    0 2px 0   rgba(184,144,43,0.3),
+    0 3px 4px rgba(115,89,31,0.25);
+  animation: hindi-shimmer 5s linear infinite, hindi-breathe 6s ease-in-out infinite;
+}
+@keyframes hindi-shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@keyframes hindi-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.025); }
+}
+
+/* English name — letter-by-letter reveal */
+.brand-english {
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.25em;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.brand-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: letter-reveal 0.6s ease forwards;
+  white-space: pre;
+}
+@keyframes letter-reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animated growing underline with jewel center */
+.brand-underline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 6px auto 0;
+  max-width: 320px;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+}
+.brand-underline-line {
+  height: 1.5px;
+  flex: 1;
+  background: linear-gradient(to right, transparent, #d4a73a, transparent);
+  transform-origin: center;
+  animation: line-grow 1.2s ease forwards;
+  transform: scaleX(0);
+}
+.brand-underline-jewel {
+  color: #d4a73a;
+  font-size: 1.1rem;
+  animation: jewel-spin 4s linear infinite;
+  display: inline-block;
+}
+@keyframes line-grow {
+  to { transform: scaleX(1); }
+}
+@keyframes jewel-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Floating sparkles */
+.sparkle {
+  position: absolute;
+  color: #d4a73a;
+  pointer-events: none;
+  opacity: 0;
+  animation: sparkle-float 4s ease-in-out infinite;
+  font-size: 1rem;
+  text-shadow: 0 0 8px rgba(212,167,58,0.8);
+}
+.sparkle-1 { top: 8%;  left: 8%;  animation-delay: 0s;   font-size: 1.1rem; }
+.sparkle-2 { top: 5%;  right: 12%; animation-delay: 1.2s; font-size: 0.9rem; }
+.sparkle-3 { bottom: 25%; left: 6%; animation-delay: 2.4s; font-size: 1rem; }
+.sparkle-4 { bottom: 18%; right: 8%; animation-delay: 0.8s; font-size: 0.85rem; }
+.sparkle-5 { top: 45%;   left: 50%; animation-delay: 1.8s; font-size: 0.7rem; transform: translateX(-50%); }
+@keyframes sparkle-float {
+  0%, 100% { opacity: 0;   transform: translateY(0)   scale(0.8); }
+  20%      { opacity: 0.9; transform: translateY(-3px) scale(1); }
+  50%      { opacity: 1;   transform: translateY(-6px) scale(1.1); }
+  80%      { opacity: 0.9; transform: translateY(-3px) scale(1); }
+}
+.sparkle-5 {
+  /* keep horizontal centering when animating */
+  --tx: -50%;
+}
+.sparkle-5 {
+  animation-name: sparkle-float-center;
+}
+@keyframes sparkle-float-center {
+  0%, 100% { opacity: 0;   transform: translateX(-50%) translateY(0)   scale(0.8); }
+  20%      { opacity: 0.9; transform: translateX(-50%) translateY(-4px) scale(1); }
+  50%      { opacity: 1;   transform: translateX(-50%) translateY(-8px) scale(1.15); }
+  80%      { opacity: 0.9; transform: translateX(-50%) translateY(-4px) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-crown, .brand-glow, .brand-hindi, .brand-letter,
+  .brand-underline-line, .brand-underline-jewel, .sparkle {
+    animation: none !important;
+  }
+  .brand-letter { opacity: 1; transform: none; }
+  .brand-underline-line { transform: scaleX(1); }
+}
