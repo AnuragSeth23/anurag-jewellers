@@ -12,7 +12,7 @@ export default function GalleryClient({ photos, whatsapp, shopName }: Props) {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   const enquiry = (idx: number) => encodeURIComponent(
-    `नमस्ते ${shopName} 🙏\nमुझे डिज़ाइन #${idx + 1} (${photos[idx].split('/').pop()}) के बारे में जानकारी चाहिए — मूल्य, वज़न, उपलब्धता।`
+    `Hello ${shopName} 🙏\nI'm interested in Design #${idx + 1} (${photos[idx].split('/').pop()}). Please share price, weight and availability.`
   );
 
   return (
@@ -32,7 +32,7 @@ export default function GalleryClient({ photos, whatsapp, shopName }: Props) {
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent text-white text-xs p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-              डिज़ाइन #{idx + 1}
+              Design #{idx + 1}
             </div>
           </button>
         ))}
@@ -68,7 +68,7 @@ export default function GalleryClient({ photos, whatsapp, shopName }: Props) {
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
             />
             <div className="mt-4 flex gap-3 items-center">
-              <span className="text-white text-sm">डिज़ाइन #{lightbox + 1} / {photos.length}</span>
+              <span className="text-white text-sm">Design #{lightbox + 1} / {photos.length}</span>
               <a
                 href={`https://wa.me/${whatsapp}?text=${enquiry(lightbox)}`}
                 target="_blank"
@@ -76,7 +76,7 @@ export default function GalleryClient({ photos, whatsapp, shopName }: Props) {
                 onClick={(e) => e.stopPropagation()}
                 className="bg-[#25D366] text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90"
               >
-                💬 WhatsApp पूछताछ
+                💬 WhatsApp Enquiry
               </a>
             </div>
           </div>

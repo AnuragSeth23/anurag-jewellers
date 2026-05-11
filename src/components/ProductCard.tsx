@@ -3,9 +3,9 @@ import JewelryIcon from './JewelryIcon';
 import { shop } from '@/lib/shop';
 
 const materialBadge: Record<Product['material'], { label: string; cls: string }> = {
-  gold:    { label: 'Gold · सोना',    cls: 'bg-gold-100 text-gold-800 border-gold-300' },
-  silver:  { label: 'Silver · चाँदी', cls: 'bg-stone-100 text-stone-700 border-stone-300' },
-  diamond: { label: 'Diamond · हीरा', cls: 'bg-blue-50 text-blue-800 border-blue-200' },
+  gold:    { label: 'Gold',    cls: 'bg-gold-100 text-gold-800 border-gold-300' },
+  silver:  { label: 'Silver',  cls: 'bg-stone-100 text-stone-700 border-stone-300' },
+  diamond: { label: 'Diamond', cls: 'bg-blue-50 text-blue-800 border-blue-200' },
 };
 
 const audienceLabel: Record<Product['audience'], string> = {
@@ -14,7 +14,7 @@ const audienceLabel: Record<Product['audience'], string> = {
 
 export default function ProductCard({ p }: { p: Product }) {
   const enquiry = encodeURIComponent(
-    `नमस्ते ${shop.nameHi} 🙏\nमुझे "${p.nameHi} (${p.nameEn})" के बारे में जानकारी चाहिए।`
+    `Hello ${shop.nameEn} 🙏\nI'm interested in "${p.nameEn}" (${p.nameHi}). Please share price and availability.`
   );
   return (
     <div className="product-card flex flex-col">
@@ -34,8 +34,8 @@ export default function ProductCard({ p }: { p: Product }) {
       </div>
 
       <div className="p-4 flex flex-col gap-2 flex-1">
-        <h3 className="hindi text-lg font-semibold maroon-text leading-tight">{p.nameHi}</h3>
-        <div className="text-xs uppercase tracking-wider text-gold-700 -mt-1">{p.nameEn}</div>
+        <h3 className="text-base font-semibold maroon-text leading-tight">{p.nameEn}</h3>
+        <div className="hindi text-xs text-gold-700 -mt-1">{p.nameHi}</div>
         <p className="text-xs text-stone-600 leading-relaxed line-clamp-3">{p.description}</p>
 
         <div className="flex flex-wrap gap-1 mt-1">
@@ -56,7 +56,7 @@ export default function ProductCard({ p }: { p: Product }) {
             rel="noreferrer"
             className="text-xs btn-outline !py-1 !px-3"
           >
-            पूछताछ →
+            Enquire →
           </a>
         </div>
       </div>

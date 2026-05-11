@@ -13,8 +13,8 @@ export function generateMetadata({ params }: Props) {
   const cat = getCategoryMeta(params.category);
   if (!cat) return {};
   return {
-    title: `${cat.nameHi} | ${cat.nameEn}`,
-    description: `${cat.nameEn} — ${cat.nameHi} ज्वैलरी की पूरी कलेक्शन — सोने, चाँदी, हीरे में।`,
+    title: cat.nameEn,
+    description: `${cat.nameEn} (${cat.nameHi}) — complete collection in gold, silver and diamond.`,
   };
 }
 
@@ -29,14 +29,14 @@ export default function CategoryPage({ params }: Props) {
         <Link href="/collections" className="text-xs text-gold-700 hover:underline">
           ← All Collections
         </Link>
-        <h1 className="text-4xl md:text-5xl gold-text hindi font-bold mt-2">{cat.nameHi}</h1>
-        <div className="text-sm tracking-[.3em] uppercase text-maroon-700 mt-2">{cat.nameEn}</div>
+        <h1 className="text-4xl md:text-5xl gold-text font-bold mt-2">{cat.nameEn}</h1>
+        <div className="hindi text-sm tracking-[.2em] text-maroon-700 mt-2">{cat.nameHi}</div>
         <p className="text-stone-600 mt-3 text-sm">{items.length} designs available</p>
       </div>
 
       {items.length === 0 ? (
         <div className="text-center py-20 text-stone-500">
-          इस श्रेणी में अभी कोई आइटम नहीं है।
+          No items in this category yet.
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">

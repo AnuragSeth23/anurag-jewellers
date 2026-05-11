@@ -15,8 +15,8 @@ export default function PhotoMarquee() {
     <section className="relative bg-cream py-12 overflow-hidden">
       <div className="text-center mb-8">
         <div className="text-xs uppercase tracking-[.4em] text-gold-700 mb-2">Live from our showroom</div>
-        <h2 className="text-3xl md:text-4xl maroon-text fancy-heading hindi">
-          हमारी ज्वैलरी की झलक
+        <h2 className="text-3xl md:text-4xl maroon-text fancy-heading">
+          A Glimpse of Our Jewelry
         </h2>
       </div>
 
@@ -46,7 +46,7 @@ export default function PhotoMarquee() {
 
       <div className="text-center mt-8">
         <Link href="/gallery" className="btn-outline">
-          सभी 139 डिज़ाइन्स देखें →
+          View All 139 Designs →
         </Link>
       </div>
     </section>

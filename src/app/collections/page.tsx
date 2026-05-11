@@ -3,28 +3,26 @@ import { categories, products } from '@/lib/products';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'सभी ज्वैलरी | All Collections',
+  title: 'All Collections',
   description:
-    'सोने, चाँदी और हीरे की पूरी कलेक्शन — हार, अंगूठी, झुमका, मांग टीका, पायल, कड़ा, चेन, नथ, पेंडेंट।',
+    'Browse the complete collection of gold, silver and diamond jewelry — necklaces, pendants, rings, earrings, bangles, payals and silver utensils.',
 };
 
 export default function CollectionsPage() {
-  // Group by category for navigation
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="text-center mb-10">
-        <h1 className="text-4xl md:text-5xl gold-text hindi font-bold">सभी कलेक्शन</h1>
-        <div className="text-sm tracking-[.3em] uppercase text-maroon-700 mt-2">All Jewellery</div>
-        <p className="text-stone-600 mt-3 hindi text-sm max-w-2xl mx-auto">
-          A to Z सब कुछ — सोना, चाँदी, हीरे — महिलाओं, पुरुषों और बच्चों के लिए
+        <h1 className="text-4xl md:text-5xl gold-text font-bold">All Collections</h1>
+        <div className="text-sm tracking-[.3em] uppercase text-maroon-700 mt-2">Full Catalogue</div>
+        <p className="text-stone-600 mt-3 text-sm max-w-2xl mx-auto">
+          From A to Z — gold, silver, diamond. For ladies, gents and kids.
         </p>
       </div>
 
-      {/* Category quick-jump */}
       <div className="flex flex-wrap gap-2 justify-center mb-10">
         {categories.map(c => (
           <Link key={c.slug} href={`#${c.slug}`} className="btn-outline text-xs">
-            <span className="hindi">{c.nameHi}</span>
+            <span>{c.nameEn}</span>
           </Link>
         ))}
       </div>
@@ -36,8 +34,8 @@ export default function CollectionsPage() {
           <section key={cat.slug} id={cat.slug} className="mb-14 scroll-mt-24">
             <div className="flex items-end justify-between mb-5">
               <div>
-                <h2 className="text-2xl md:text-3xl maroon-text hindi">{cat.nameHi}</h2>
-                <div className="text-xs uppercase tracking-wider text-gold-700">{cat.nameEn}</div>
+                <h2 className="text-2xl md:text-3xl maroon-text">{cat.nameEn}</h2>
+                <div className="hindi text-xs tracking-wider text-gold-700">{cat.nameHi}</div>
               </div>
               <Link href={`/collections/${cat.slug}`} className="text-xs text-maroon-700 underline">
                 View all →

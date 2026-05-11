@@ -2,13 +2,13 @@ import Link from 'next/link';
 import { categories } from '@/lib/products';
 
 const categoryThumbnails: Record<string, string> = {
-  necklace: '/products/p005.jpg',  // gold necklace 13.7g
-  pendant:  '/products/p001.jpg',  // gold locket collection
-  ring:     '/products/p010.jpg',  // diamond ring
-  jhumka:   '/products/p020.jpg',  // gold chand bali
-  bangle:   '/products/p050.jpg',  // gold bangles
-  payal:    '/products/p070.jpg',  // silver payal
-  utensil:  '/products/p051.jpg',  // silver glasses
+  necklace: '/products/p005.jpg',
+  pendant:  '/products/p001.jpg',
+  ring:     '/products/p010.jpg',
+  jhumka:   '/products/p020.jpg',
+  bangle:   '/products/p050.jpg',
+  payal:    '/products/p070.jpg',
+  utensil:  '/products/p051.jpg',
 };
 
 export default function CategoryGrid() {
@@ -16,11 +16,11 @@ export default function CategoryGrid() {
     <section className="container mx-auto px-4 py-16">
       <div className="text-center mb-10">
         <div className="text-xs uppercase tracking-[.4em] text-gold-700 mb-2">Browse by Category</div>
-        <h2 className="text-3xl md:text-4xl maroon-text fancy-heading hindi">
-          ज्वैलरी की श्रेणियाँ
+        <h2 className="text-3xl md:text-4xl maroon-text fancy-heading">
+          Our Collections
         </h2>
-        <p className="text-sm text-stone-600 mt-3 hindi max-w-xl mx-auto">
-          सोना · चाँदी · हीरा — हर श्रेणी की पूरी कलेक्शन देखें
+        <p className="text-sm text-stone-600 mt-3 max-w-xl mx-auto">
+          Gold · Silver · Diamond — explore every category
         </p>
       </div>
 
@@ -46,8 +46,8 @@ export default function CategoryGrid() {
                 <div className="absolute inset-0 bg-gradient-to-t from-maroon-900/60 via-transparent to-transparent" />
               </div>
               <div className="px-3 py-3 text-center">
-                <div className="hindi font-semibold maroon-text text-sm">{c.nameHi}</div>
-                <div className="text-[10px] uppercase tracking-wider text-gold-700 mt-0.5">{c.nameEn}</div>
+                <div className="font-semibold maroon-text text-sm">{c.nameEn}</div>
+                <div className="hindi text-[10px] tracking-wider text-gold-700 mt-0.5">{c.nameHi}</div>
               </div>
             </Link>
           );

@@ -8,9 +8,9 @@ import MobileBottomBar from '@/components/MobileBottomBar';
 import { shop, siteUrl } from '@/lib/shop';
 
 const description =
-  `${shop.nameEn} (${shop.nameHi}) — Best Jewellery Shop in Mangalpur, Varanasi. ` +
-  'Gold, Silver and Diamond Jewellery — Necklace, Rings, Bangles, Maang Tikka, ' +
-  'Payal, Earrings (Jhumka), Nath, Kada, Chains. For Wedding, Engagement, Lagan, Birthday & all occasions. ' +
+  `${shop.nameEn} (${shop.nameHi}) — Trusted jewelry shop in Mangalpur, Varanasi. ` +
+  'Gold, Silver and Diamond jewelry — Necklaces, Rings, Bangles, Maang Tikka, ' +
+  'Payals, Earrings (Jhumka), Nath, Kada, Chains. For Weddings, Engagements, Lagan, Birthdays and every occasion. ' +
   `Proprietor: ${shop.proprietor.nameEn}. Call ${shop.phones[0]}.`;
 
 export const metadata: Metadata = {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   alternates: { canonical: siteUrl },
   openGraph: {
     type: 'website',
-    locale: 'hi_IN',
+    locale: 'en_IN',
     siteName: shop.nameEn,
     title: `${shop.nameHi} | ${shop.nameEn}`,
     description,
@@ -96,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   return (
-    <html lang="hi">
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"

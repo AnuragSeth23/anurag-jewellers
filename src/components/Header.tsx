@@ -5,13 +5,13 @@ import { useState } from 'react';
 import { shop } from '@/lib/shop';
 
 const nav = [
-  { href: '/',                 hi: 'मुख्य पृष्ठ',  en: 'Home',     icon: '🏠' },
-  { href: '/gallery',          hi: 'पूरी गैलरी',  en: 'Gallery',   icon: '📸' },
-  { href: '/collections',      hi: 'सभी ज्वैलरी', en: 'Collections', icon: '💎' },
-  { href: '/collections/pendant',  hi: 'लॉकेट / पेंडेंट', en: 'Lockets',  icon: '📿' },
-  { href: '/collections/payal',    hi: 'पायल',    en: 'Payals',    icon: '👣' },
-  { href: '/about',            hi: 'हमारे बारे में', en: 'About',  icon: 'ℹ️' },
-  { href: '/contact',          hi: 'संपर्क',      en: 'Contact',   icon: '📞' },
+  { href: '/',                    label: 'Home',         icon: '🏠' },
+  { href: '/gallery',             label: 'Gallery',      icon: '📸' },
+  { href: '/collections',         label: 'Collections',  icon: '💎' },
+  { href: '/collections/pendant', label: 'Lockets',      icon: '📿' },
+  { href: '/collections/payal',   label: 'Payals',       icon: '👣' },
+  { href: '/about',               label: 'About',        icon: 'ℹ️' },
+  { href: '/contact',             label: 'Contact',      icon: '📞' },
 ];
 
 export default function Header() {
@@ -39,24 +39,21 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-stone-700 hover:text-maroon-700 transition-colors flex flex-col items-center"
+              className="text-stone-700 hover:text-maroon-700 transition-colors text-[13px] uppercase tracking-wider font-medium"
             >
-              <span className="hindi text-[13px]">{item.hi}</span>
-              <span className="text-[10px] uppercase tracking-wider text-gold-700">{item.en}</span>
+              {item.label}
             </Link>
           ))}
         </nav>
 
         {/* Phone + hamburger */}
         <div className="flex items-center gap-2 shrink-0">
-          {/* Desktop / tablet: full phone button */}
           <a
             href={`tel:${shop.phones[0].replace(/\s/g, '')}`}
             className="hidden sm:inline-flex btn-primary text-xs sm:text-sm !px-3 !py-2"
           >
             📞 {shop.phones[0]}
           </a>
-          {/* Mobile: hamburger only (Call/WA already in bottom bar) */}
           <button
             onClick={() => setOpen(!open)}
             aria-label="Menu"
@@ -64,7 +61,6 @@ export default function Header() {
           >
             <span className="text-xl">{open ? '✕' : '☰'}</span>
           </button>
-          {/* Tablet hamburger between sm and lg */}
           <button
             onClick={() => setOpen(!open)}
             aria-label="Menu"
@@ -86,17 +82,14 @@ export default function Header() {
               className="flex items-center gap-3 px-5 py-4 border-b border-gold-100 active:bg-gold-50"
             >
               <span className="text-xl">{item.icon}</span>
-              <div className="flex-1">
-                <div className="hindi text-base font-medium text-maroon-700">{item.hi}</div>
-                <div className="text-[10px] uppercase tracking-wider text-gold-700">{item.en}</div>
-              </div>
+              <div className="flex-1 text-base font-medium text-maroon-700">{item.label}</div>
               <span className="text-gold-700">›</span>
             </Link>
           ))}
         </nav>
       )}
 
-      {/* Mobile horizontal scroll nav (always visible, big tap targets) */}
+      {/* Mobile horizontal scroll nav */}
       {!open && (
         <nav className="lg:hidden flex overflow-x-auto gap-1 px-2 py-2 border-t border-gold-100 bg-cream scrollbar-hide">
           {nav.map(item => (
@@ -106,7 +99,7 @@ export default function Header() {
               className="shrink-0 flex flex-col items-center gap-0.5 px-3 py-2 rounded-lg active:bg-gold-100 min-w-[68px]"
             >
               <span className="text-lg">{item.icon}</span>
-              <span className="hindi text-[11px] text-stone-700 whitespace-nowrap leading-tight">{item.hi}</span>
+              <span className="text-[11px] text-stone-700 whitespace-nowrap leading-tight">{item.label}</span>
             </Link>
           ))}
         </nav>

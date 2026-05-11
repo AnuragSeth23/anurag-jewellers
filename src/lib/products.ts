@@ -105,7 +105,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Locket Collection — 6 Designs (Heart-shape)',
     category: 'pendant', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'daily'],
-    description: 'सोने के लॉकेट / मंगलसूत्र पेंडेंट के 6 अलग-अलग दिल-आकार डिज़ाइन्स — झालर और बारीक नक्काशी। मनपसंद डिज़ाइन फोन पर बताएं।',
+    description: '6 different heart-shaped gold locket / mangalsutra pendant designs with fringe and intricate carving. Call us with your preferred design.',
     icon: 'pendant', tone: 'gold', featured: true,
   },
   {
@@ -114,7 +114,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Locket Collection — 6 Designs (Traditional)',
     category: 'pendant', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'festival', 'daily'],
-    description: 'पारंपरिक नक्काशी और बूंदी काम वाले 6 गोल्ड लॉकेट डिज़ाइन्स — हर महिला के लिए शुभ।',
+    description: '6 gold locket designs with traditional carving and bead-work — auspicious for every occasion.',
     icon: 'pendant', tone: 'gold', featured: true,
   },
   {
@@ -123,7 +123,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Locket Collection — 6 Designs (Mixed)',
     category: 'pendant', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'daily'],
-    description: 'गोल्ड लॉकेट के 6 मिक्स्ड डिज़ाइन्स — चौकोर, गोल और दिल आकार में।',
+    description: '6 mixed gold locket designs — square, round and heart shapes.',
     icon: 'pendant', tone: 'gold',
   },
   {
@@ -132,7 +132,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Locket Collection — 6 Designs (Paisley)',
     category: 'pendant', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'festival'],
-    description: 'पैस्ली शैली के 6 गोल्ड लॉकेट डिज़ाइन्स — झालर के साथ पारंपरिक लुक।',
+    description: '6 paisley-style gold locket designs with traditional fringe.',
     icon: 'pendant', tone: 'gold',
   },
   {
@@ -142,7 +142,7 @@ const _rawProducts: Product[] = [
     category: 'pendant', material: 'gold',
     audience: 'ladies', occasions: ['daily', 'wedding'],
     weightGrams: 4.53,
-    description: 'विस्तृत नक्काशी वाला सोने का पेंडेंट — स्केल पर मापा गया वज़न 4.53 ग्राम।',
+    description: 'Gold pendant with detailed carving — measured weight 4.53 grams.',
     icon: 'pendant', tone: 'gold', featured: true,
   },
   {
@@ -152,7 +152,7 @@ const _rawProducts: Product[] = [
     category: 'pendant', material: 'gold',
     audience: 'ladies', occasions: ['daily', 'wedding'],
     weightGrams: 5.12,
-    description: 'फूलदार नक्काशी और झालर वाला सोने का पेंडेंट — वज़न 5.12 ग्राम।',
+    description: 'Gold pendant with floral carving and fringe — weight 5.12 grams.',
     icon: 'pendant', tone: 'gold',
   },
   {
@@ -162,7 +162,7 @@ const _rawProducts: Product[] = [
     category: 'pendant', material: 'gold',
     audience: 'ladies', occasions: ['daily', 'festival'],
     weightGrams: 5.04,
-    description: 'चांद आकार के डिज़ाइन में सोने का पेंडेंट — वज़न 5.04 ग्राम।',
+    description: 'Crescent-design gold pendant — weight 5.04 grams.',
     icon: 'pendant', tone: 'gold',
   },
 
@@ -174,7 +174,7 @@ const _rawProducts: Product[] = [
     category: 'necklace', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'lagan'],
     weightGrams: 13.7,
-    description: 'फूलदार केंद्रीय पेंडेंट और झालरदार किनारे — वज़न 13.700 ग्राम।',
+    description: 'Gold necklace with floral center pendant and fringe edges — weight 13.700 grams.',
     icon: 'necklace', tone: 'gold', featured: true,
   },
   {
@@ -183,7 +183,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Necklace with Meenakari Work',
     category: 'necklace', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'festival'],
-    description: 'लाल मीनाकारी के साथ पारंपरिक डिज़ाइन का सोने का हार — झालरदार पेंडेंट।',
+    description: 'Traditional gold necklace with red meenakari work and fringe pendant.',
     icon: 'necklace', tone: 'gold',
   },
   {
@@ -192,7 +192,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Bridal Gold Haar Set (Long + Short)',
     category: 'necklace', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'lagan'],
-    description: 'दुल्हन के लिए सेट — लम्बा रानी हार, छोटा हार, मांग टीका साथ। राजशाही डिज़ाइन।',
+    description: 'Bridal set — long Rani Haar, short necklace and Maang Tikka together. Royal design.',
     icon: 'set', tone: 'gold', featured: true,
   },
 
@@ -203,7 +203,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Diamond Ring 18K (LR21123)',
     category: 'ring', material: 'diamond',
     audience: 'ladies', occasions: ['engagement', 'wedding'],
-    description: 'BIS हॉलमार्क प्रमाणित 18K सोने की डायमंड अंगूठी — डिज़ाइन कोड LR21123।',
+    description: 'BIS hallmark certified 18K gold diamond ring — design code LR21123.',
     icon: 'ring', tone: 'white', featured: true,
   },
   {
@@ -213,7 +213,7 @@ const _rawProducts: Product[] = [
     category: 'ring', material: 'diamond',
     audience: 'ladies', occasions: ['engagement'],
     weightGrams: 2.312,
-    description: 'हॉलमार्क प्रमाणित 18K डायमंड अंगूठी, नेट वज़न 2.312 ग्राम। डिज़ाइन कोड LR21101।',
+    description: 'Hallmark certified 18K diamond ring, net weight 2.312 grams. Design code LR21101.',
     icon: 'ring', tone: 'white', featured: true,
   },
   {
@@ -223,7 +223,7 @@ const _rawProducts: Product[] = [
     category: 'ring', material: 'diamond',
     audience: 'ladies', occasions: ['engagement', 'birthday'],
     weightGrams: 2.912,
-    description: 'जाली डिज़ाइन वाली 18K हॉलमार्क डायमंड अंगूठी, नेट वज़न 2.912 ग्राम।',
+    description: '18K hallmark diamond ring with mesh design, net weight 2.912 grams.',
     icon: 'ring', tone: 'white',
   },
   {
@@ -233,7 +233,7 @@ const _rawProducts: Product[] = [
     category: 'ring', material: 'diamond',
     audience: 'ladies', occasions: ['daily', 'birthday'],
     weightGrams: 1.480,
-    description: 'फूलदार डिज़ाइन वाली हल्की डायमंड अंगूठी 18K — नेट वज़न 1.480 ग्राम।',
+    description: 'Lightweight 18K diamond ring with floral design — net weight 1.480 grams.',
     icon: 'ring', tone: 'white',
   },
   {
@@ -242,7 +242,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Rings — 3 Designs (Heart, Leaf)',
     category: 'ring', material: 'gold',
     audience: 'ladies', occasions: ['daily', 'birthday'],
-    description: 'सोने की अंगूठियों के 3 अलग डिज़ाइन्स — दिल, पत्ती और पारंपरिक स्टाइल।',
+    description: '3 different gold ring designs — heart, leaf and traditional styles.',
     icon: 'ring', tone: 'gold',
   },
 
@@ -253,7 +253,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Silver Stone Rings — Mixed Lot',
     category: 'ring', material: 'silver',
     audience: 'ladies', occasions: ['daily', 'festival'],
-    description: 'अलग-अलग रंगीन पत्थर वाली चाँदी की फैशन अंगूठियाँ — फूल और दिल आकार।',
+    description: 'Silver fashion rings with assorted colored stones — flower and heart shapes.',
     icon: 'ring', tone: 'antique',
   },
   {
@@ -262,7 +262,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Silver Flower Rings — Mixed Lot',
     category: 'ring', material: 'silver',
     audience: 'ladies', occasions: ['daily', 'festival'],
-    description: 'फूल आकार के रंगीन पत्थरों वाली चाँदी अंगूठियाँ — मिक्स्ड साइज़ और रंग।',
+    description: 'Silver rings with flower-shaped colored stones — mixed sizes and colors.',
     icon: 'ring', tone: 'antique',
   },
   {
@@ -271,7 +271,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Silver Rings — Heart & Flower Mix',
     category: 'ring', material: 'silver',
     audience: 'ladies', occasions: ['daily'],
-    description: 'चाँदी की रोज़मर्रा पहनने वाली अंगूठियाँ — दिल और फूल पैटर्न।',
+    description: 'Everyday silver rings — heart and flower patterns.',
     icon: 'ring', tone: 'antique',
   },
 
@@ -282,7 +282,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Chand Bali — 3-Tier Design',
     category: 'jhumka', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'lagan'],
-    description: 'तीन-तीर वाली बड़ी सोने की चांद बाली — झालर और लाल मीनाकारी के साथ।',
+    description: 'Large 3-tier gold chand bali with fringe and red meenakari work.',
     icon: 'jhumka', tone: 'gold', featured: true,
   },
   {
@@ -291,7 +291,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Chand Bali — Peacock Design',
     category: 'jhumka', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'festival'],
-    description: 'मोर पैटर्न वाली तीन-तीर सोने की चांद बाली — झालर के साथ शाही लुक।',
+    description: '3-tier gold chand bali in peacock pattern with fringe — royal look.',
     icon: 'jhumka', tone: 'gold',
   },
   {
@@ -300,7 +300,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Chand Bali — with Red Stones',
     category: 'jhumka', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'festival'],
-    description: 'लाल पत्थरों और फूल नक्काशी वाली सोने की भारी चांद बाली।',
+    description: 'Heavy gold chand bali with red stones and floral carving.',
     icon: 'jhumka', tone: 'gold',
   },
   {
@@ -309,7 +309,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Chand Bali with Jhumki Drop',
     category: 'jhumka', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'lagan'],
-    description: 'तीन-तीर चांद बाली, नीचे झुमकी लटकती हुई — दुल्हन के लुक के लिए।',
+    description: '3-tier chand bali with hanging jhumki at the bottom — perfect for a bridal look.',
     icon: 'jhumka', tone: 'gold',
   },
   {
@@ -318,7 +318,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Gold Chand Bali (In Box)',
     category: 'jhumka', material: 'gold',
     audience: 'ladies', occasions: ['wedding', 'engagement'],
-    description: 'हरे पत्थर और झुमकी वाली डिब्बा-बंद सोने की चांद बाली — गिफ्ट के लिए तैयार।',
+    description: 'Boxed gold chand bali with green stones and jhumki drop — gift-ready.',
     icon: 'jhumka', tone: 'gold',
   },
 
@@ -330,7 +330,7 @@ const _rawProducts: Product[] = [
     category: 'bangle', material: 'gold',
     audience: 'ladies', occasions: ['daily', 'wedding'],
     weightGrams: 3.7,
-    description: 'सिंपल पतली सोने की चूड़ी जोड़ी, बीच में नक्काशी वाला बीड — कुल वज़न 3.700 ग्राम।',
+    description: 'Simple thin gold bangles pair with a carved bead at the center — total weight 3.700 grams.',
     icon: 'bangle', tone: 'gold', featured: true,
   },
   {
@@ -340,7 +340,7 @@ const _rawProducts: Product[] = [
     category: 'bangle', material: 'gold',
     audience: 'ladies', occasions: ['daily'],
     weightGrams: 4,
-    description: 'एडजस्टेबल साइज़ वाली सोने की हल्की चूड़ी जोड़ी — कुल वज़न 4 ग्राम।',
+    description: 'Adjustable lightweight gold bangles pair — total weight 4 grams.',
     icon: 'bangle', tone: 'gold',
   },
   {
@@ -350,7 +350,7 @@ const _rawProducts: Product[] = [
     category: 'bangle', material: 'gold',
     audience: 'ladies', occasions: ['festival', 'wedding'],
     weightGrams: 8,
-    description: 'नक्काशीदार बीड्स वाली सोने की चूड़ी जोड़ी — कुल वज़न 8 ग्राम।',
+    description: 'Designer gold bangles pair with carved beads — total weight 8 grams.',
     icon: 'bangle', tone: 'gold',
   },
   {
@@ -359,7 +359,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Rudraksha + Gold Beads Bracelet',
     category: 'bangle', material: 'gold',
     audience: 'unisex', occasions: ['daily', 'festival'],
-    description: 'रुद्राक्ष और सोने के बीड्स का अध्यात्मिक ब्रेसलेट — पुरुष-महिला दोनों के लिए।',
+    description: 'Spiritual bracelet with Rudraksha beads and gold accents — for men and women.',
     icon: 'bangle', tone: 'gold',
   },
 
@@ -371,7 +371,7 @@ const _rawProducts: Product[] = [
     category: 'payal', material: 'silver',
     audience: 'ladies', occasions: ['wedding', 'festival'],
     weightGrams: 102.6,
-    description: 'घुंघरूदार चाँदी की फैंसी पायल जोड़ी — नेट वज़न 102.6 ग्राम (MO एक्सक्लूसिव डिज़ाइन)।',
+    description: 'Silver fancy payal pair with ghungroo bells — net weight 102.6 grams (MO Exclusive Design).',
     icon: 'payal', tone: 'antique', featured: true,
   },
   {
@@ -381,7 +381,7 @@ const _rawProducts: Product[] = [
     category: 'payal', material: 'silver',
     audience: 'ladies', occasions: ['wedding', 'festival'],
     weightGrams: 98.3,
-    description: 'लाल पत्थर वाली चाँदी की फैंसी पायल जोड़ी — नेट वज़न 98.3 ग्राम (MO91)।',
+    description: 'Silver fancy payal pair with red stones — net weight 98.3 grams (MO91).',
     icon: 'payal', tone: 'antique',
   },
   {
@@ -391,7 +391,7 @@ const _rawProducts: Product[] = [
     category: 'payal', material: 'silver',
     audience: 'ladies', occasions: ['wedding', 'lagan'],
     weightGrams: 118.83,
-    description: 'PSW माइक्रो प्रीमियम क्वालिटी की चाँदी पायल जोड़ी — नेट वज़न 118.83 ग्राम।',
+    description: 'PSW micro-premium quality silver payal pair — net weight 118.83 grams.',
     icon: 'payal', tone: 'antique', featured: true,
   },
   {
@@ -401,7 +401,7 @@ const _rawProducts: Product[] = [
     category: 'payal', material: 'silver',
     audience: 'ladies', occasions: ['daily', 'festival'],
     weightGrams: 90.5,
-    description: 'हल्की चाँदी की फैंसी पायल — नेट वज़न 90.5 ग्राम।',
+    description: 'Lightweight silver fancy payal — net weight 90.5 grams.',
     icon: 'payal', tone: 'antique',
   },
   {
@@ -411,7 +411,7 @@ const _rawProducts: Product[] = [
     category: 'payal', material: 'silver',
     audience: 'ladies', occasions: ['wedding'],
     weightGrams: 140.2,
-    description: 'दुल्हन के लिए भारी डिज़ाइन वाली चाँदी पायल — नेट वज़न 140.2 ग्राम।',
+    description: 'Heavy bridal silver payal pair — net weight 140.2 grams.',
     icon: 'payal', tone: 'antique',
   },
   {
@@ -421,7 +421,7 @@ const _rawProducts: Product[] = [
     category: 'payal', material: 'silver',
     audience: 'ladies', occasions: ['daily'],
     weightGrams: 87.7,
-    description: 'रोज़ पहनने वाली चाँदी फैंसी पायल — नेट वज़न 87.7 ग्राम।',
+    description: 'Everyday silver fancy payal — net weight 87.7 grams.',
     icon: 'payal', tone: 'antique',
   },
 
@@ -432,7 +432,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Silver Glass Pair (Puja / Gift)',
     category: 'utensil', material: 'silver',
     audience: 'unisex', occasions: ['festival'],
-    description: 'पूजा-पाठ और शुभ अवसरों पर देने हेतु चाँदी के सुंदर गिलास जोड़ी।',
+    description: 'Elegant silver glass pair for puja and gifting on auspicious occasions.',
     icon: 'set', tone: 'antique',
   },
   {
@@ -441,7 +441,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Silver Thali (Puja)',
     category: 'utensil', material: 'silver',
     audience: 'unisex', occasions: ['festival'],
-    description: 'पूजा-पाठ हेतु चाँदी की पारंपरिक थाली — पैक्ड और तैयार।',
+    description: 'Traditional silver thali for puja use — packed and ready.',
     icon: 'set', tone: 'antique',
   },
 
@@ -452,7 +452,7 @@ const _rawProducts: Product[] = [
     nameEn: 'Silver Heart-Arrow Chain (S925)',
     category: 'necklace', material: 'silver',
     audience: 'ladies', occasions: ['birthday', 'daily'],
-    description: 'पंखों वाले डिज़ाइन का चाँदी का पेंडेंट + पीला पत्थर — Heart Arrow Original handmade S925 silver।',
+    description: 'Silver pendant with wing design + yellow stone — Heart Arrow Original handmade S925 silver.',
     icon: 'necklace', tone: 'white',
   },
 ];

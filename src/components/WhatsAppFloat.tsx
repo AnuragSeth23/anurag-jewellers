@@ -2,7 +2,7 @@ import { shop } from '@/lib/shop';
 
 export default function WhatsAppFloat() {
   const msg = encodeURIComponent(
-    `नमस्ते ${shop.nameHi} 🙏\nमुझे ज्वैलरी में रुचि है, कृपया जानकारी दें।`
+    `Hello ${shop.nameEn} 🙏\nI'm interested in your jewelry. Please share more details.`
   );
   return (
     <a

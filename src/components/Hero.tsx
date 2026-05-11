@@ -2,30 +2,27 @@ import Link from 'next/link';
 import { shop } from '@/lib/shop';
 
 const showcasePhotos = [
-  '/products/p001.jpg', // gold locket collection
-  '/products/p020.jpg', // gold chand bali
-  '/products/p005.jpg', // gold necklace 13.700g
-  '/products/p050.jpg', // gold bangles 3.700g
+  '/products/p001.jpg',
+  '/products/p020.jpg',
+  '/products/p005.jpg',
+  '/products/p050.jpg',
 ];
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-cream via-gold-50 to-gold-100">
-      {/* Decorative ornaments */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-gold-shine blur-3xl" />
         <div className="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-gold-shine blur-3xl" />
       </div>
 
-      {/* Subtle dotted pattern */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
            style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #73591f 1px, transparent 0)', backgroundSize: '32px 32px' }} />
 
       <div className="container mx-auto px-4 py-6 md:py-20 grid md:grid-cols-2 gap-6 md:gap-10 items-center relative">
 
-        {/* ============== MOBILE VIEW (single combined card) ============== */}
+        {/* MOBILE — single unified card */}
         <div className="md:hidden bg-white rounded-3xl shadow-xl border-2 border-gold-300 overflow-hidden">
-          {/* Religious banner */}
           <div className="bg-gradient-to-r from-maroon-700 via-maroon-800 to-maroon-700 py-2.5 text-center">
             <div className="hindi text-xs tracking-[.3em] text-gold-200 font-medium">
               ॥ शुभ उद्घाटन ॥
@@ -40,7 +37,6 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Compact heading that always fits mobile width */}
             <h1 className="hindi font-bold gold-text mb-1"
                 style={{ fontSize: 'clamp(2rem, 9vw, 3rem)', lineHeight: 1.4, paddingBottom: '0.18em' }}>
               {shop.nameHi}
@@ -53,10 +49,9 @@ export default function Hero() {
 
             <div className="divider-ornament my-3">✦</div>
 
-            <p className="hindi text-stone-700 text-sm leading-relaxed">{shop.tagline}</p>
-            <p className="text-stone-500 italic text-xs mb-4">{shop.taglineEn}</p>
+            <p className="text-stone-700 text-sm leading-relaxed">Trusted in Gold &amp; Silver</p>
+            <p className="text-stone-500 italic text-xs mb-4">A Family Tradition Since 2022</p>
 
-            {/* 4 real photos */}
             <div className="grid grid-cols-2 gap-2 mb-4">
               {showcasePhotos.map((src, i) => (
                 <Link
@@ -72,10 +67,10 @@ export default function Hero() {
 
             <div className="flex gap-2 mb-4">
               <Link href="/gallery" className="btn-primary text-sm flex-1 justify-center">
-                📸 गैलरी देखें
+                📸 View Gallery
               </Link>
               <Link href="/collections" className="btn-outline text-sm flex-1 justify-center">
-                💎 कैटेगरी
+                💎 Categories
               </Link>
             </div>
 
@@ -99,15 +94,15 @@ export default function Hero() {
               बाबा विश्वनाथ जी की असीम अनुकम्पा एवं आशीर्वाद से
             </div>
             <div className="divider-ornament my-2" />
-            <div className="text-[11px] hindi text-stone-600 leading-relaxed">
-              <span className="text-gold-700">प्रो.</span> {shop.proprietor.nameHi}
+            <div className="text-[11px] text-stone-600 leading-relaxed">
+              <span className="text-gold-700">Prop.</span> <span className="hindi">{shop.proprietor.nameHi}</span>
               <span className="mx-2 text-gold-400">·</span>
-              <span className="text-gold-700">निवेदक:</span> {shop.founder.nameHi}
+              <span className="text-gold-700">Founder:</span> <span className="hindi">{shop.founder.nameHi}</span>
             </div>
           </div>
         </div>
 
-        {/* ============== DESKTOP / TABLET — left brand + right banner ============== */}
+        {/* DESKTOP / TABLET */}
         <div className="hidden md:block text-left">
           <div className="inline-flex items-center gap-2 bg-gold-50 border border-gold-300 px-4 py-1.5 rounded-full mb-5">
             <span className="w-2 h-2 rounded-full bg-maroon-700 animate-pulse" />
@@ -128,15 +123,15 @@ export default function Hero() {
 
           <div className="divider-ornament my-5 max-w-sm mx-0">✦</div>
 
-          <p className="hindi text-stone-700 text-xl leading-relaxed mb-1">{shop.tagline}</p>
-          <p className="text-stone-500 italic text-sm mb-8">{shop.taglineEn}</p>
+          <p className="text-stone-700 text-xl leading-relaxed mb-1">Trusted in Gold &amp; Silver</p>
+          <p className="text-stone-500 italic text-sm mb-8">A Family Tradition Since 2022</p>
 
           <div className="flex flex-wrap gap-3 mb-7">
             <Link href="/gallery" className="btn-primary">
-              📸 पूरी गैलरी देखें
+              📸 View Full Gallery
             </Link>
             <Link href="/collections" className="btn-outline">
-              💎 कैटेगरी
+              💎 Categories
             </Link>
             <a
               href={`https://wa.me/${shop.whatsapp}`}
@@ -162,7 +157,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right banner card — desktop only */}
         <div className="hidden md:block relative md:pl-6">
           <div className="bg-white rounded-3xl shadow-2xl border-2 border-gold-300 p-8 text-center overflow-hidden">
             <div className="bg-gradient-to-r from-maroon-700 via-maroon-800 to-maroon-700 -mx-8 -mt-8 mb-5 py-3">
@@ -207,15 +201,15 @@ export default function Hero() {
 
             <div className="divider-ornament my-3" />
 
-            <div className="text-xs hindi text-stone-600 leading-relaxed">
-              <div><span className="text-gold-700">प्रो.</span> {shop.proprietor.nameHi}</div>
-              <div><span className="text-gold-700">निवेदक:</span> {shop.founder.nameHi}</div>
+            <div className="text-xs text-stone-600 leading-relaxed">
+              <div><span className="text-gold-700">Prop.</span> <span className="hindi">{shop.proprietor.nameHi}</span></div>
+              <div><span className="text-gold-700">Founder:</span> <span className="hindi">{shop.founder.nameHi}</span></div>
             </div>
           </div>
 
           <div className="absolute -top-3 -right-3 bg-maroon-700 text-gold-100 rounded-full w-20 h-20 flex items-center justify-center shadow-lg rotate-12 text-center">
             <div>
-              <div className="text-[10px] hindi">शुद्ध</div>
+              <div className="text-[10px]">Pure</div>
               <div className="text-lg font-bold">916</div>
               <div className="text-[10px]">GOLD</div>
             </div>

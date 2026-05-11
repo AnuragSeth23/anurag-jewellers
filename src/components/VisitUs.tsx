@@ -6,8 +6,8 @@ export default function VisitUs() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <div className="text-xs uppercase tracking-[.4em] text-gold-700 mb-2">Visit Showroom</div>
-          <h2 className="text-3xl md:text-4xl maroon-text fancy-heading hindi">
-            हमारी दुकान पर पधारें
+          <h2 className="text-3xl md:text-4xl maroon-text fancy-heading">
+            Visit Our Store
           </h2>
         </div>
 
@@ -18,27 +18,27 @@ export default function VisitUs() {
 
             <div className="space-y-4 text-sm text-stone-700">
               <div>
-                <div className="font-semibold hindi text-maroon-700 mb-0.5">📍 पता</div>
-                {shop.address.line1}, {shop.address.line2}<br/>
+                <div className="font-semibold text-maroon-700 mb-0.5">📍 Address</div>
+                {shop.address.line1}, {shop.address.line2}<br />
                 {shop.address.city}, {shop.address.state} — {shop.address.pincode}
               </div>
 
               <div>
-                <div className="font-semibold hindi text-maroon-700 mb-0.5">📞 संपर्क</div>
+                <div className="font-semibold text-maroon-700 mb-0.5">📞 Contact</div>
                 {shop.phones.map(p => (
                   <a key={p} href={`tel:${p.replace(/\s/g, '')}`} className="block hover:text-gold-700">{p}</a>
                 ))}
               </div>
 
               <div>
-                <div className="font-semibold hindi text-maroon-700 mb-0.5">🕘 समय</div>
-                Mon–Sat: {shop.hours.weekdays}<br/>
+                <div className="font-semibold text-maroon-700 mb-0.5">🕘 Hours</div>
+                Mon–Sat: {shop.hours.weekdays}<br />
                 Sunday: {shop.hours.sunday}
               </div>
 
               <div>
-                <div className="font-semibold hindi text-maroon-700 mb-0.5">👤 स्वामी</div>
-                <span className="hindi">{shop.proprietor.nameHi}</span> ({shop.proprietor.role})<br/>
+                <div className="font-semibold text-maroon-700 mb-0.5">👤 Owners</div>
+                <span className="hindi">{shop.proprietor.nameHi}</span> ({shop.proprietor.role})<br />
                 <span className="hindi">{shop.founder.nameHi}</span> ({shop.founder.role})
               </div>
             </div>
