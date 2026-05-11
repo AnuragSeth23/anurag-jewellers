@@ -2,10 +2,10 @@ import Link from 'next/link';
 import { shop } from '@/lib/shop';
 
 const showcasePhotos = [
-  '/products/p001.jpg',
-  '/products/p020.jpg',
-  '/products/p005.jpg',
-  '/products/p050.jpg',
+  '/products/p140.jpg', // gold chains hung on hand — premium showroom shot
+  '/products/p145.jpg', // silver payal mannequin shot (professional)
+  '/products/p001.jpg', // gold locket designs
+  '/products/p020.jpg', // gold chand bali
 ];
 
 export default function Hero() {
@@ -66,10 +66,10 @@ export default function Hero() {
             </div>
 
             <div className="flex gap-2 mb-4">
-              <Link href="/gallery" className="btn-primary text-sm flex-1 justify-center">
-                📸 View Gallery
+              <Link href="/gallery" className="btn-primary text-sm flex-1 justify-center !px-3 whitespace-nowrap">
+                📸 Gallery
               </Link>
-              <Link href="/collections" className="btn-outline text-sm flex-1 justify-center">
+              <Link href="/collections" className="btn-outline text-sm flex-1 justify-center !px-3 whitespace-nowrap">
                 💎 Categories
               </Link>
             </div>

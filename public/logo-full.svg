@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480">
+  <defs>
+    <radialGradient id="gold-rad-full" cx="50%" cy="35%" r="65%">
+      <stop offset="0%"  stop-color="#fff3c0"/>
+      <stop offset="35%" stop-color="#e0bc5e"/>
+      <stop offset="70%" stop-color="#b8902b"/>
+      <stop offset="100%" stop-color="#73591f"/>
+    </radialGradient>
+    <linearGradient id="gold-lin-full" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#fbe7a0"/>
+      <stop offset="50%" stop-color="#d4a73a"/>
+      <stop offset="100%" stop-color="#73591f"/>
+    </linearGradient>
+    <linearGradient id="gold-text" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#fbe7a0"/>
+      <stop offset="50%" stop-color="#e0bc5e"/>
+      <stop offset="100%" stop-color="#b8902b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Black background (optional - remove if transparent needed) -->
+  <rect width="400" height="480" fill="#0a0905"/>
+
+  <!-- Crown -->
+  <g transform="translate(200, 50)">
+    <rect x="-50" y="22" width="100" height="14" rx="2" fill="url(#gold-lin-full)" stroke="#52401a" stroke-width="1"/>
+    <polygon points="-50,22 -36,-12 -22,22" fill="url(#gold-lin-full)" stroke="#52401a" stroke-width="1"/>
+    <polygon points="-22,22 0,-28 22,22"    fill="url(#gold-lin-full)" stroke="#52401a" stroke-width="1"/>
+    <polygon points="22,22 36,-12 50,22"    fill="url(#gold-lin-full)" stroke="#52401a" stroke-width="1"/>
+    <circle cx="-36" cy="-12" r="4" fill="#fff3c0"/>
+    <circle cx="0"   cy="-28" r="5" fill="#fff3c0"/>
+    <circle cx="36"  cy="-12" r="4" fill="#fff3c0"/>
+    <!-- Cross at top -->
+    <rect x="-2" y="-44" width="4" height="14" fill="url(#gold-lin-full)"/>
+    <rect x="-6" y="-39" width="12" height="3" fill="url(#gold-lin-full)"/>
+  </g>
+
+  <!-- Big gold medallion -->
+  <circle cx="200" cy="180" r="100" fill="url(#gold-rad-full)" stroke="#52401a" stroke-width="3"/>
+  <circle cx="200" cy="180" r="88"  fill="none" stroke="#52401a" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.5"/>
+
+  <!-- AJ monogram -->
+  <g transform="translate(200, 180)" fill="none" stroke="#1f1404" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M -42 32 L -10 -38 L 22 32 M -28 10 L 8 10"/>
+    <path d="M 38 -38 L 38 16 Q 38 38 16 38 Q -6 38 -6 16"/>
+  </g>
+
+  <!-- Side decorative scrolls -->
+  <g fill="url(#gold-lin-full)" stroke="#52401a" stroke-width="0.8">
+    <!-- Left scroll -->
+    <path d="M 30 320 Q 60 305 100 320 Q 80 330 60 322 Q 50 332 30 320 Z"/>
+    <path d="M 12 326 Q 20 318 30 320 Q 25 326 20 326 Z"/>
+    <!-- Right scroll -->
+    <path d="M 370 320 Q 340 305 300 320 Q 320 330 340 322 Q 350 332 370 320 Z"/>
+    <path d="M 388 326 Q 380 318 370 320 Q 375 326 380 326 Z"/>
+  </g>
+
+  <!-- ANURAG JEWELLERS text -->
+  <text x="200" y="385" text-anchor="middle"
+        font-family="serif" font-size="44" font-weight="700"
+        letter-spacing="3"
+        fill="url(#gold-text)">ANURAG JEWELLERS</text>
+
+  <!-- Decorative line under text -->
+  <line x1="60" y1="410" x2="340" y2="410" stroke="url(#gold-lin-full)" stroke-width="2"/>
+  <circle cx="200" cy="410" r="5" fill="url(#gold-lin-full)"/>
+
+  <!-- Tagline -->
+  <text x="200" y="445" text-anchor="middle"
+        font-family="serif" font-size="16" font-style="italic"
+        letter-spacing="4"
+        fill="#d4a73a">SINCE 2022 · VARANASI</text>
+</svg>

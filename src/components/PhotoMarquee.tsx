@@ -1,9 +1,10 @@
 import Link from 'next/link';
 
+// Highlights — new premium showroom photos (p140+) mixed with bestsellers
 const photos = [
-  'p001', 'p002', 'p005', 'p006', 'p010', 'p011', 'p020', 'p021',
-  'p050', 'p052', 'p054', 'p060', 'p061', 'p070', 'p072', 'p081',
-  'p090', 'p100', 'p120', 'p122',
+  'p145', 'p140', 'p150', 'p001', 'p160', 'p005', 'p155', 'p020',
+  'p165', 'p050', 'p141', 'p010', 'p147', 'p011', 'p152', 'p122',
+  'p148', 'p060', 'p157', 'p162',
 ];
 
 /** Auto-scrolling photo strip — gives a high-end "bestseller marquee" feel. */

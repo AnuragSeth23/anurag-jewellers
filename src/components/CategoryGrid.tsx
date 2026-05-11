@@ -7,7 +7,7 @@ const categoryThumbnails: Record<string, string> = {
   ring:     '/products/p010.jpg',
   jhumka:   '/products/p020.jpg',
   bangle:   '/products/p050.jpg',
-  payal:    '/products/p070.jpg',
+  payal:    '/products/p145.jpg', // professional payal mannequin shot
   utensil:  '/products/p051.jpg',
 };
 

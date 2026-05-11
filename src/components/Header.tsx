@@ -22,9 +22,12 @@ export default function Header() {
       {/* Top bar */}
       <div className="container mx-auto px-3 sm:px-4 py-3 flex items-center justify-between gap-2">
         <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold-shine flex items-center justify-center shadow-gold shrink-0">
-            <span className="text-maroon-700 text-xl sm:text-2xl hindi font-bold">अ</span>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-icon.svg"
+            alt="Anurag Jewellers"
+            className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 drop-shadow"
+          />
           <div className="leading-tight min-w-0">
             <div className="hindi text-base sm:text-xl font-bold maroon-text truncate">{shop.nameHi}</div>
             <div className="text-[9px] sm:text-[11px] tracking-[.2em] uppercase text-gold-700 truncate">
