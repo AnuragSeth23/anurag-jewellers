@@ -24,9 +24,20 @@ export default function Hero() {
 
         {/* MOBILE — single unified card */}
         <div className="md:hidden bg-white rounded-3xl shadow-xl border-2 border-gold-300 overflow-hidden">
-          <div className="bg-gradient-to-r from-maroon-700 via-maroon-800 to-maroon-700 py-2.5 text-center">
-            <div className="hindi text-xs tracking-[.3em] text-gold-200 font-medium">
-              ॥ शुभ उद्घाटन ॥
+          <div className="bg-gradient-to-r from-maroon-700 via-maroon-800 to-maroon-700 py-2 px-3">
+            <div className="flex items-center justify-between gap-2">
+              <div className="hindi text-base font-bold gold-text shrink-0 drop-shadow"
+                   style={{ paddingBottom: '.1em' }}>
+                ॐ शुभ
+              </div>
+              <div className="hindi text-[11px] tracking-[.3em] text-gold-200 font-medium text-center flex-1"
+                   style={{ paddingBottom: '.05em' }}>
+                ॥ शुभ उद्घाटन ॥
+              </div>
+              <div className="hindi text-base font-bold gold-text shrink-0 drop-shadow"
+                   style={{ paddingBottom: '.1em' }}>
+                लाभ ॐ
+              </div>
             </div>
           </div>
 
@@ -150,9 +161,20 @@ export default function Hero() {
 
         <div className="hidden md:block relative md:pl-6">
           <div className="bg-white rounded-3xl shadow-2xl border-2 border-gold-300 p-8 text-center overflow-hidden">
-            <div className="bg-gradient-to-r from-maroon-700 via-maroon-800 to-maroon-700 -mx-8 -mt-8 mb-5 py-3">
-              <div className="hindi text-sm tracking-[.3em] text-gold-200 font-medium">
-                ॥ शुभ उद्घाटन ॥
+            <div className="bg-gradient-to-r from-maroon-700 via-maroon-800 to-maroon-700 -mx-8 -mt-8 mb-5 py-3 px-4">
+              <div className="flex items-center justify-between gap-3">
+                <div className="hindi text-xl font-bold gold-text shrink-0 drop-shadow"
+                     style={{ paddingBottom: '.1em' }}>
+                  ॐ शुभ
+                </div>
+                <div className="hindi text-sm tracking-[.3em] text-gold-200 font-medium text-center flex-1"
+                     style={{ paddingBottom: '.05em' }}>
+                  ॥ शुभ उद्घाटन ॥
+                </div>
+                <div className="hindi text-xl font-bold gold-text shrink-0 drop-shadow"
+                     style={{ paddingBottom: '.1em' }}>
+                  लाभ ॐ
+                </div>
               </div>
             </div>
 
