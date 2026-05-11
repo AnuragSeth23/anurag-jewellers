@@ -16,12 +16,12 @@ export const shop = {
   },
   address: {
     line1: 'Korauti Chauraha',
-    line2: 'Yogesh Singh Katra, Mangalpur',
+    line2: 'Bahumulya',
     city: 'Varanasi',
     state: 'Uttar Pradesh',
     pincode: '221105',
     country: 'India',
-    full: 'Korauti Chauraha, Yogesh Singh Katra, Mangalpur, Varanasi, Uttar Pradesh - 221105',
+    full: 'Anurag Jewellers, Korauti Chauraha, Bahumulya, Varanasi, Uttar Pradesh - 221105',
   },
   phones: ['+91 8127535627', '+91 8127504900'],
   whatsapp: '918127535627',
@@ -41,11 +41,12 @@ export const shop = {
     instagram: '',
     facebook:  '',
   },
-  // Replace with actual Google Maps embed URL once shop is listed on Google My Business
+  // Points to the actual "Anurag Jewellers - Bahumulya" listing on Google Maps.
+  // Once you create a Google My Business profile, replace mapsLink with the share URL from there.
   mapsEmbed:
-    'https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Korauti+Chauraha+Mangalpur+Varanasi',
+    'https://www.google.com/maps?q=Anurag+Jewellers+Bahumulya+Korauti+Chauraha+Varanasi&output=embed',
   mapsLink:
-    'https://www.google.com/maps/search/?api=1&query=Korauti+Chauraha+Mangalpur+Varanasi',
+    'https://www.google.com/maps/search/?api=1&query=Anurag+Jewellers+Bahumulya+Korauti+Chauraha+Varanasi',
 };
 
 export const siteUrl =

@@ -56,7 +56,7 @@ export default function VisitUs() {
           <div className="rounded-2xl overflow-hidden border-2 border-gold-300 shadow-gold min-h-[360px] bg-white">
             <iframe
               title="Anurag Jewellers Location"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(shop.address.full)}&output=embed`}
+              src={shop.mapsEmbed}
               className="w-full h-full min-h-[360px] border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
