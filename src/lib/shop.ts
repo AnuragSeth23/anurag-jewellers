@@ -41,12 +41,9 @@ export const shop = {
     instagram: '',
     facebook:  '',
   },
-  // Points to the actual "Anurag Jewellers - Bahumulya" listing on Google Maps.
-  // Once you create a Google My Business profile, replace mapsLink with the share URL from there.
   mapsEmbed:
-    'https://www.google.com/maps?q=Anurag+Jewellers+Bahumulya+Korauti+Chauraha+Varanasi&output=embed',
-  mapsLink:
-    'https://www.google.com/maps/search/?api=1&query=Anurag+Jewellers+Bahumulya+Korauti+Chauraha+Varanasi',
+    'https://www.google.com/maps?q=Anurag+Jewellers%2C+Korauti+Chauraha%2C+Bahumulya%2C+Varanasi+221105&output=embed',
+  mapsLink: 'https://share.google/SIdn75G1HkJI4kFpG',
 };
 
 export const siteUrl =
