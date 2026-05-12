@@ -1,11 +1,15 @@
+const isProd = process.env.NODE_ENV === 'production';
+const basePath = isProd ? '/anurag-jewellers' : '';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'res.cloudinary.com' },
-      { protocol: 'https', hostname: 'images.unsplash.com' },
-    ],
+  output: 'export',
+  trailingSlash: true,
+  basePath,
+  images: { unoptimized: true },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
 

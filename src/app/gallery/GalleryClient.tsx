@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { asset } from '@/lib/asset';
 
 interface Props {
   photos: string[];
@@ -26,7 +27,7 @@ export default function GalleryClient({ photos, whatsapp, shopName }: Props) {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={src}
+              src={asset(src)}
               alt={`Design #${idx + 1}`}
               loading="lazy"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -63,7 +64,7 @@ export default function GalleryClient({ photos, whatsapp, shopName }: Props) {
           <div onClick={(e) => e.stopPropagation()} className="relative max-w-4xl max-h-[90vh] flex flex-col items-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={photos[lightbox]}
+              src={asset(photos[lightbox])}
               alt={`Design #${lightbox + 1}`}
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
             />

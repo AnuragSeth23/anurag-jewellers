@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { shop } from '@/lib/shop';
+import { asset } from '@/lib/asset';
 
 const nav = [
   { href: '/',                    label: 'Home',         icon: '🏠' },
@@ -24,7 +25,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/logo-icon.svg"
+            src={asset("/logo-icon.svg")}
             alt="Anurag Jewellers"
             className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 drop-shadow"
           />

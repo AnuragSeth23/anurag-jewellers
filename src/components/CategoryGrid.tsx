@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { categories } from '@/lib/products';
+import { asset } from '@/lib/asset';
 
 const categoryThumbnails: Record<string, string> = {
   necklace: '/products/p005.jpg',
@@ -37,7 +38,7 @@ export default function CategoryGrid() {
                 {thumb && (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
-                    src={thumb}
+                    src={asset(thumb)}
                     alt={c.nameEn}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { asset } from '@/lib/asset';
 
 // Highlights — new premium showroom photos (p140+) mixed with bestsellers
 const photos = [
@@ -35,7 +36,7 @@ export default function PhotoMarquee() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`/products/${id}.jpg`}
+                src={asset(`/products/${id}.jpg`)}
                 alt="Anurag Jewellers showcase"
                 className="w-full h-full object-cover"
                 loading="lazy"

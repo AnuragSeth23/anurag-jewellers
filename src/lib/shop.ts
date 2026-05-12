@@ -50,4 +50,4 @@ export const shop = {
 };
 
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://anurag-jewellers.vercel.app';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://anuragseth23.github.io/anurag-jewellers';

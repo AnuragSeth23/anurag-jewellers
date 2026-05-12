@@ -1,6 +1,7 @@
 import type { Product } from '@/lib/products';
 import JewelryIcon from './JewelryIcon';
 import { shop } from '@/lib/shop';
+import { asset } from '@/lib/asset';
 
 const materialBadge: Record<Product['material'], { label: string; cls: string }> = {
   gold:    { label: 'Gold',    cls: 'bg-gold-100 text-gold-800 border-gold-300' },
@@ -21,7 +22,7 @@ export default function ProductCard({ p }: { p: Product }) {
       <div className="relative">
         {p.image ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={p.image} alt={p.nameEn} className="w-full aspect-square object-cover" />
+          <img src={asset(p.image)} alt={p.nameEn} className="w-full aspect-square object-cover" />
         ) : (
           <JewelryIcon icon={p.icon} tone={p.tone} />
         )}

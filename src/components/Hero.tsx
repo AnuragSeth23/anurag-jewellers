@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { shop } from '@/lib/shop';
 import BrandTitle from './BrandTitle';
+import { asset } from '@/lib/asset';
 
 const showcasePhotos = [
   '/products/p140.jpg', // gold chains hung on hand — premium showroom shot
@@ -66,7 +67,7 @@ export default function Hero() {
                   className="aspect-square overflow-hidden rounded-xl border-2 border-gold-200 bg-gold-50"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt={`Showcase ${i + 1}`} className="w-full h-full object-cover" />
+                  <img src={asset(src)} alt={`Showcase ${i + 1}`} className="w-full h-full object-cover" />
                 </Link>
               ))}
             </div>
@@ -197,7 +198,7 @@ export default function Hero() {
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={src}
+                    src={asset(src)}
                     alt={`Anurag Jewellers showcase ${i + 1}`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
